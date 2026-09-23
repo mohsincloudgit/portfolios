@@ -1,0 +1,14 @@
+# Archives
+*.zip
+*.tar.gz
+*.rar
+
+# IDE & OS
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+*.log
+
+# Dependencies (if any added in future)
+node_modules/

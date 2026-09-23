@@ -1,0 +1,742 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Muhammad Mohsin — Front End Developer | GHL Automation Expert | CMS Specialist</title>
+  <meta name="description" content="Official Portfolio of Muhammad Mohsin. Front End Developer & GHL Automation Expert specializing in custom CMS (WordPress, Shopify, Webflow), n8n & Make.com AI agent workflows, and Technical SEO.">
+
+  <!-- Google Fonts: Syne, Plus Jakarta Sans, JetBrains Mono -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Syne:wght@500;700;800&display=swap" rel="stylesheet">
+
+  <!-- Bootstrap 5.3 Framework -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Core Stylesheet -->
+  <link rel="stylesheet" href="css/main.css">
+
+  <!-- Third-party Engine CDNs -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <script src="https://unpkg.com/lenis@1.1.9/dist/lenis.min.js"></script>
+</head>
+<body>
+
+  <!-- 3D WebGL Layer & Custom Cursor -->
+  <div id="webgl-container"></div>
+  <div class="grid-overlay"></div>
+  <div class="cursor-dot" id="cursorDot"></div>
+  <div class="cursor-aura" id="cursorAura"></div>
+
+
+
+  <div class="app-container">
+
+    <!-- Header Navigation -->
+    <header class="navbar" id="navbar">
+      <div class="container-1700 d-flex align-items-center justify-content-between w-100">
+        <a href="#hero" class="nav-brand">
+          <div class="brand-badge">MM</div>
+          <div class="brand-title">MOHSIN<span class="blue">.DEV</span> <span class="red">// GHL</span></div>
+        </a>
+        <ul class="nav-links">
+          <li><a href="#about">About</a></li>
+          <li><a href="#experience">Experience</a></li>
+          <li><a href="#services">Skills</a></li>
+          <li><a href="#projects">Deployments</a></li>
+          <li><a href="#education">Education</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+        <div class="nav-actions">
+          <a href="assets/docs/Mohsin_Resume.pdf" download="Muhammad_Mohsin_Resume.pdf" class="btn-action btn-red-outline" style="padding: 8px 16px; font-size: 0.8rem;">
+            Download Resume (PDF) 📥
+          </a>
+          <a href="#contact" class="btn-action btn-primary-glow">Book Strategy Call →</a>
+        </div>
+      </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero-section" id="hero">
+      <div class="container-1700">
+        <div class="row align-items-center g-5">
+          <div class="col-12 col-xl-7 col-lg-6 hero-info">
+            <div class="badge-tech">
+              <span class="dot-red"></span>
+              <span>MUHAMMAD MOHSIN &bull; FRONT END DEVELOPER &bull; GHL AUTOMATION EXPERT</span>
+            </div>
+
+            <h1 class="hero-title">
+              Architecting High-Speed CMS & <span class="gradient-text">Autonomous GHL Systems.</span>
+            </h1>
+
+            <p class="hero-description">
+              Automation & Digital Specialist with proven expertise in custom <strong>Front End & CMS Development (WordPress, Shopify, Webflow, Squarespace, Unbounce)</strong> and enterprise <strong>GoHighLevel (GHL) CRM automations</strong> with <strong>make.com, n8n, and Zapier/REST APIs</strong>.
+            </p>
+
+            <!-- Direct Contact Pills from Resume -->
+            <div class="hero-contact-bar">
+              <a href="mailto:mohsincloudmail@gmail.com" class="contact-quick-chip">
+                <span>✉️</span> mohsincloudmail@gmail.com
+              </a>
+              <a href="tel:+923302893269" class="contact-quick-chip">
+                <span>📞</span> +92 330-2893269
+              </a>
+              <span class="contact-quick-chip">
+                <span>📍</span> Gulistan-e-Johar, Karachi
+              </span>
+            </div>
+
+            <div class="hero-cta-group">
+              <a href="#projects" class="btn-action btn-primary-glow" style="padding: 14px 30px; font-size: 0.95rem;">
+                Explore Production Work
+              </a>
+              <a href="assets/docs/Mohsin_Resume.pdf" download="Muhammad_Mohsin_Resume.pdf" class="btn-action btn-red-outline" style="padding: 14px 26px; font-size: 0.95rem;">
+                Download Official CV (PDF) 📄
+              </a>
+            </div>
+
+            <div class="hero-metrics">
+              <div class="metric-item">
+                <div class="number">5<span class="accent-blue">+</span></div>
+                <div class="label">Years Industry Experience (Since 2019)</div>
+              </div>
+              <div class="metric-item">
+                <div class="number">40<span class="accent-red">+</span></div>
+                <div class="label">GHL Sub-Accounts & Snapshots Synced</div>
+              </div>
+              <div class="metric-item">
+                <div class="number">100<span class="accent-blue">%</span></div>
+                <div class="label">Lighthouse Core Web Vitals Standard</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Right 3D Interactive Avatar Stage -->
+          <div class="col-12 col-xl-5 col-lg-6">
+            <div class="hero-avatar-stage" id="avatarStage">
+              <div class="avatar-hud-header">
+                <div class="hud-pill-tag">
+                  <span class="pulse-dot"></span>
+                  <span>3D AI CHATBOT AGENT // AUTONOMOUS</span>
+                </div>
+                <div class="hud-terminal-tag" id="hudCoords">GAZE X: 0.00 | Y: 0.00</div>
+              </div>
+
+              <div class="ai-speech-bubble">
+                <span class="ai-status-pulse"></span>
+                <span>AI Bot Online: Tracking cursor & ready for automation queries</span>
+              </div>
+
+              <!-- Interactive Viewport: Dedicated 3D AI Bot inside HUD Zone -->
+              <div class="avatar-interactive-zone" id="avatarInteractiveZone">
+                <div class="hud-corner-bracket tl"></div>
+                <div class="hud-corner-bracket tr"></div>
+                <div class="hud-corner-bracket bl"></div>
+                <div class="hud-corner-bracket br"></div>
+                <div class="hud-scanline-beam"></div>
+                <canvas id="heroZoneCanvas" style="position:absolute;top:0;left:0;width:100%;height:100%;display:block;z-index:2;"></canvas>
+                <div class="avatar-crosshair-label" style="z-index:8;">✦ 3D AI BOT ACTIVE // MOUSE GAZE TRACKING ✦</div>
+              </div>
+
+              <div class="hud-core-specs">
+                <div class="spec-box">
+                  <div class="title">Current Role</div>
+                  <div class="val" style="color: var(--blue-glow);">
+                    <span>🏢</span> Bembex Lab (CMS Lead)
+                  </div>
+                </div>
+                <div class="spec-box">
+                  <div class="title">Automation Engine</div>
+                  <div class="val" style="color: var(--red-glow);">
+                    <span>⚡</span> GHL + n8n + Make
+                  </div>
+                </div>
+                <div class="spec-box">
+                  <div class="title">Platforms Handled</div>
+                  <div class="val">
+                    <span>🌐</span> WP, Shopify, Webflow
+                  </div>
+                </div>
+                <div class="spec-box">
+                  <div class="title">Academic Base</div>
+                  <div class="val" style="color: #10b981;">
+                    <span>🎓</span> BSc. Software Eng (KU)
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- About Me Section -->
+    <section id="about">
+      <div class="container-1700">
+        <div class="section-badge">
+          <span class="badge-icon"></span>
+          <span>BACKGROUND & PROFILE</span>
+        </div>
+        <h2 class="section-heading">About Muhammad Mohsin.</h2>
+
+        <div class="row g-4 align-items-stretch">
+          <!-- Technical Architecture Terminal (No Photo) -->
+          <div class="col-12 col-lg-6">
+            <div class="about-terminal-card h-100">
+              <div class="about-terminal-header">
+                <div class="terminal-title">// SYSTEM CAPABILITY MATRIX</div>
+                <div style="font-family: 'JetBrains Mono', monospace; font-size: 0.72rem; color: #10b981; display: flex; align-items: center; gap: 6px;">
+                  <span class="pulse-dot"></span> VERIFIED CREDENTIALS
+                </div>
+              </div>
+
+              <ul class="pillar-checklist">
+                <li class="pillar-item">
+                  <span class="pillar-icon">⚡</span>
+                  <div class="pillar-content">
+                    <div class="p-title">GoHighLevel (GHL) Architecture</div>
+                    <div class="p-desc">Universal snapshots, sub-account scaling, automated funnels, webhook pipelines & SMS/Email logic.</div>
+                  </div>
+                </li>
+                <li class="pillar-item">
+                  <span class="pillar-icon">🌐</span>
+                  <div class="pillar-content">
+                    <div class="p-title">Multi-Platform CMS Mastery</div>
+                    <div class="p-desc">Custom themes & stores on WordPress, Shopify (Liquid), Webflow, Squarespace & Unbounce.</div>
+                  </div>
+                </li>
+                <li class="pillar-item">
+                  <span class="pillar-icon">🤖</span>
+                  <div class="pillar-content">
+                    <div class="p-title">Autonomous AI & Make/n8n Agents</div>
+                    <div class="p-desc">Zero-latency lead qualification, AI auto-responders, multi-CRM sync & webhook routing.</div>
+                  </div>
+                </li>
+                <li class="pillar-item">
+                  <span class="pillar-icon">🚀</span>
+                  <div class="pillar-content">
+                    <div class="p-title">Technical SEO & 100/100 CWV</div>
+                    <div class="p-desc">Google Lighthouse 100/100, Core Web Vitals optimization, schema markup & crawl architecture.</div>
+                  </div>
+                </li>
+              </ul>
+
+              <div style="margin-top: 24px; padding-top: 16px; border-top: 1px solid rgba(255,255,255,0.06); display: flex; justify-content: space-between; align-items: center;">
+                <span style="font-family: 'JetBrains Mono', monospace; font-size: 0.75rem; color: var(--text-dim);">CODEBASE: ANTIGRAVITY ENGINE</span>
+                <span style="font-family: 'JetBrains Mono', monospace; font-size: 0.75rem; color: var(--blue-glow);">STATUS: 100% OPERATIONAL</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- About Text & Credentials -->
+          <div class="col-12 col-lg-6">
+            <div class="about-bio-panel h-100">
+              <h3 style="font-size: 1.8rem; margin-bottom: 20px; font-weight: 800; line-height: 1.3;">
+                A Highly Effective Automation & Digital Specialist Delivering Measurable Growth.
+              </h3>
+              <p style="color: var(--text-slate); font-size: 1.05rem; line-height: 1.8; margin-bottom: 20px;">
+                With a comprehensive background spanning full-stack CMS development, mission-critical operational data management (K-Electric, E-commerce), and advanced automation architectures, I bridge the gap between high-converting user interfaces and autonomous business workflows.
+              </p>
+              <p style="color: var(--text-slate); font-size: 1.05rem; line-height: 1.8; margin-bottom: 32px;">
+                Whether architecting multi-tiered <strong>GoHighLevel (GHL) snapshots</strong>, deploying <strong>n8n AI agent workflows</strong> that accelerate lead velocity, or optimizing client web properties for <strong>100/100 Core Web Vitals</strong> and technical SEO, every solution is built for maximum conversion and rock-solid stability.
+              </p>
+
+              <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 32px;">
+                <div class="spec-box">
+                  <div class="title">Education</div>
+                  <div class="val" style="font-size: 0.9rem;">BSc. Software Engineering (Univ. of Karachi)</div>
+                </div>
+                <div class="spec-box">
+                  <div class="title">Location</div>
+                  <div class="val" style="font-size: 0.9rem;">Karachi, Pakistan (Open to Remote Worldwide)</div>
+                </div>
+                <div class="spec-box">
+                  <div class="title">Specialty 1</div>
+                  <div class="val" style="color: var(--blue-glow); font-size: 0.9rem;">GoHighLevel (GHL) & AI Agents</div>
+                </div>
+                <div class="spec-box">
+                  <div class="title">Specialty 2</div>
+                  <div class="val" style="color: var(--red-glow); font-size: 0.9rem;">WordPress, Shopify & Technical SEO</div>
+                </div>
+              </div>
+
+              <a href="assets/docs/Mohsin_Resume.pdf" download="Muhammad_Mohsin_Resume.pdf" class="btn-action btn-primary-glow">
+                Download Full Resume (PDF) 📄
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Work Experience Timeline -->
+    <section id="experience">
+      <div class="container-1700">
+        <div class="section-badge red-badge">
+          <span class="badge-icon"></span>
+          <span>CAREER TIMELINE</span>
+        </div>
+        <h2 class="section-heading">Professional Work Experience.</h2>
+        <p class="section-subtext">
+          Track record of driving client visibility, building resilient automation pipelines, and engineering high-performance web systems.
+        </p>
+
+        <div class="experience-timeline">
+          <!-- 1. Bembex Lab -->
+          <div class="timeline-item active-role">
+            <div class="timeline-meta-col">
+              <div class="timeline-period">⚡ JAN 2026 – PRESENT</div>
+              <div class="timeline-company">Bembex Lab</div>
+              <div class="timeline-badge current">Current Position</div>
+            </div>
+            <div class="timeline-content-col">
+              <h3>WordPress CMS Developer & Multi-Platform Specialist</h3>
+              <p>
+                Handling multi-platform client development based on fully custom functionality across WordPress, Shopify, Squarespace, Webflow, and Unbounce builders. Designing and implementing GoHighLevel (GHL) automations and client funnels while managing cloud hosting, domain infrastructure, DNS routing, and platform maintenance.
+              </p>
+              <div class="tag-cluster">
+                <span class="tag-chip active-blue">WordPress Custom</span>
+                <span class="tag-chip">Shopify</span>
+                <span class="tag-chip">GHL Automations</span>
+                <span class="tag-chip">Webflow</span>
+                <span class="tag-chip">Squarespace</span>
+                <span class="tag-chip">Unbounce</span>
+                <span class="tag-chip">Hosting & Domains</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- 2. Carpe Diem -->
+          <div class="timeline-item">
+            <div class="timeline-meta-col">
+              <div class="timeline-period">JUNE 2025 – JAN 2026</div>
+              <div class="timeline-company">Carpe Diem</div>
+              <div class="timeline-badge">GHL Automation</div>
+            </div>
+            <div class="timeline-content-col">
+              <h3>Automation & Digital Specialist (GHL Association)</h3>
+              <p>
+                Specialized in designing enterprise GHL automations and advanced integrations using make.com, n8n, and Zapier/REST APIs. Architected and deployed autonomous n8n-based agent systems that significantly improved lead response speed (&lt; 15 seconds) and boosted overall conversion rates.
+              </p>
+              <div class="tag-cluster">
+                <span class="tag-chip active-red">n8n Agent Systems</span>
+                <span class="tag-chip">Make.com</span>
+                <span class="tag-chip">GHL v2 API</span>
+                <span class="tag-chip">Zapier Enterprise</span>
+                <span class="tag-chip">Lead Conversion Optimization</span>
+                <span class="tag-chip">Smart Pipelines</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- 3. SOURCE CODE -->
+          <div class="timeline-item">
+            <div class="timeline-meta-col">
+              <div class="timeline-period">JAN 2024 – JUNE 2025</div>
+              <div class="timeline-company">SOURCE CODE</div>
+              <div class="timeline-badge">Front End & SEO</div>
+            </div>
+            <div class="timeline-content-col">
+              <h3>Front End Web Developer & Technical SEO Specialist</h3>
+              <p>
+                Managed full-stack web development encompassing WordPress, Shopify, and custom front-end web solutions. Drove substantial increases in client organic visibility, Google rankings, and organic leads through dedicated technical On-page and Off-page SEO strategies, schema graphs, and Core Web Vitals optimization.
+              </p>
+              <div class="tag-cluster">
+                <span class="tag-chip active-blue">Full-Stack WordPress</span>
+                <span class="tag-chip">Technical SEO</span>
+                <span class="tag-chip">Core Web Vitals</span>
+                <span class="tag-chip">On-page / Off-page SEO</span>
+                <span class="tag-chip">Custom Front End</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- 4. K-Electric -->
+          <div class="timeline-item">
+            <div class="timeline-meta-col">
+              <div class="timeline-period">JUNE 2023 – JAN 2024</div>
+              <div class="timeline-company">K-Electric</div>
+              <div class="timeline-badge">Operations Data</div>
+            </div>
+            <div class="timeline-content-col">
+              <h3>Back Office Operations Executive (Outages Operations Data Management)</h3>
+              <p>
+                Executed mission-critical Outages Operations Data Management at Karachi's central power utility. Maintained absolute operational integrity and accuracy across high-volume live outage systems. Handled real-time operational data streams to ensure continuous grid monitoring, status updates, and zero-error system reliability.
+              </p>
+              <div class="tag-cluster">
+                <span class="tag-chip active-red">Live Outages Management</span>
+                <span class="tag-chip">Data Integrity</span>
+                <span class="tag-chip">Real-Time Telemetry</span>
+                <span class="tag-chip">Operations Reliability</span>
+                <span class="tag-chip">Incident Reporting</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- 5. E-Commerce -->
+          <div class="timeline-item">
+            <div class="timeline-meta-col">
+              <div class="timeline-period">AUG 2019 – SEP 2020</div>
+              <div class="timeline-company">E-Commerce</div>
+              <div class="timeline-badge">Data Execution</div>
+            </div>
+            <div class="timeline-content-col">
+              <h3>E-Commerce Data Assortment Executive</h3>
+              <p>
+                Managed online store inventory and product data pipelines, specializing in automated data scraping for competitive market analysis and rapid catalog integration. Ensured high accuracy, taxonomy consistency, and clean execution across e-commerce retail platforms.
+              </p>
+              <div class="tag-cluster">
+                <span class="tag-chip">Data Scraping</span>
+                <span class="tag-chip">Inventory Assortment</span>
+                <span class="tag-chip">Competitive Analysis</span>
+                <span class="tag-chip">Catalog Integration</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Core Skills Grid -->
+    <section id="services">
+      <div class="container-1700">
+        <div class="section-badge">
+          <span class="badge-icon"></span>
+          <span>CORE EXPERTISE</span>
+        </div>
+        <h2 class="section-heading">Technical Skills & Platforms.</h2>
+        <p class="section-subtext">
+          Comprehensive skill set from Mohsin's verified experience, built to engineer high-velocity platforms and autonomous business systems.
+        </p>
+
+        <div class="pillar-grid">
+          <!-- 1. GHL Automations -->
+          <div class="tilt-card" data-tilt>
+            <div class="card-icon-wrap blue-icon">⚡</div>
+            <h3 class="card-title">High-Impact GHL & CRM</h3>
+            <p class="card-text">
+              Enterprise GoHighLevel snapshots, sub-account multi-tenant pipelines, automated SMS/voice follow-ups, trigger links, SaaS mode setups, and custom client dashboards.
+            </p>
+            <div class="tag-cluster">
+              <span class="tag-chip active-blue">GHL Snapshots</span>
+              <span class="tag-chip">Smart Pipelines</span>
+              <span class="tag-chip">SaaS Mode</span>
+              <span class="tag-chip">Stripe Billing</span>
+              <span class="tag-chip">Sub-Accounts</span>
+            </div>
+          </div>
+
+          <!-- 2. Middleware & AI -->
+          <div class="tilt-card red-flare" data-tilt>
+            <div class="card-icon-wrap red-icon">🤖</div>
+            <h3 class="card-title">Advanced Integration & Middleware</h3>
+            <p class="card-text">
+              Autonomous agent workflows and data bridges built with n8n, make.com, Zapier, and custom webhooks for instant lead scoring, multi-CRM sync, and 24/7 automation.
+            </p>
+            <div class="tag-cluster">
+              <span class="tag-chip active-red">n8n Agents</span>
+              <span class="tag-chip">Make.com</span>
+              <span class="tag-chip">Zapier API</span>
+              <span class="tag-chip">Webhooks</span>
+              <span class="tag-chip">REST APIs</span>
+            </div>
+          </div>
+
+          <!-- 3. Full-Stack CMS -->
+          <div class="tilt-card" data-tilt>
+            <div class="card-icon-wrap blue-icon">💻</div>
+            <h3 class="card-title">Full-Stack CMS Development</h3>
+            <p class="card-text">
+              Custom WordPress themes and plugins, Shopify Liquid stores, Webflow builds, Squarespace, and Unbounce high-converting landing pages.
+            </p>
+            <div class="tag-cluster">
+              <span class="tag-chip active-blue">WordPress Core</span>
+              <span class="tag-chip">Shopify</span>
+              <span class="tag-chip">Webflow</span>
+              <span class="tag-chip">Squarespace</span>
+              <span class="tag-chip">Unbounce</span>
+            </div>
+          </div>
+
+          <!-- 4. Technical SEO -->
+          <div class="tilt-card red-flare" data-tilt>
+            <div class="card-icon-wrap red-icon">📈</div>
+            <h3 class="card-title">Technical SEO & Digital Strategy</h3>
+            <p class="card-text">
+              Full-spectrum On-page and Off-page SEO, comprehensive Schema.org structured data hierarchy, sub-second TTFB, and flawless 100/100 Core Web Vitals.
+            </p>
+            <div class="tag-cluster">
+              <span class="tag-chip active-red">Schema.org Graph</span>
+              <span class="tag-chip">On-page SEO</span>
+              <span class="tag-chip">Off-page SEO</span>
+              <span class="tag-chip">100/100 CWV</span>
+              <span class="tag-chip">GSC Audits</span>
+            </div>
+          </div>
+
+          <!-- 5. Operations Data -->
+          <div class="tilt-card" data-tilt>
+            <div class="card-icon-wrap blue-icon">🛡️</div>
+            <h3 class="card-title">Critical Operational Data Management</h3>
+            <p class="card-text">
+              High-reliability live operational data monitoring, mission-critical outages system management (K-Electric standards), and continuous data integrity verification.
+            </p>
+            <div class="tag-cluster">
+              <span class="tag-chip active-blue">Live Systems</span>
+              <span class="tag-chip">Data Integrity</span>
+              <span class="tag-chip">Zero Discrepancy</span>
+              <span class="tag-chip">Outage Operations</span>
+              <span class="tag-chip">Reporting</span>
+            </div>
+          </div>
+
+          <!-- 6. E-Commerce Data Execution -->
+          <div class="tilt-card red-flare" data-tilt>
+            <div class="card-icon-wrap red-icon">🛒</div>
+            <h3 class="card-title">E-Commerce Data Execution</h3>
+            <p class="card-text">
+              Automated product data scraping for competitive analysis, catalog normalization, high-accuracy store inventory assortment, and conversion-focused merchandising.
+            </p>
+            <div class="tag-cluster">
+              <span class="tag-chip active-red">Data Scraping</span>
+              <span class="tag-chip">Inventory Management</span>
+              <span class="tag-chip">Competitive Pricing</span>
+              <span class="tag-chip">Catalog Sync</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Production Deployments / Projects Showcase -->
+    <section id="projects">
+      <div class="container-1700">
+        <div class="section-badge red-badge">
+          <span class="badge-icon"></span>
+          <span>PRODUCTION DEPLOYMENTS</span>
+        </div>
+        <h2 class="section-heading">Featured Systems & Client Solutions.</h2>
+        <p class="section-subtext">
+          Real-world implementations from Mohsin's professional career. Click any system to inspect the detailed architecture, deliverables, and metrics.
+        </p>
+
+        <!-- Interactive Filter Tabs -->
+        <div class="project-tabs-container">
+          <button class="project-tab-btn active" data-category="all">All Systems (8)</button>
+          <button class="project-tab-btn" data-category="crm-ghl">CRM & GHL Automations (3)</button>
+          <button class="project-tab-btn" data-category="cms">CMS Development (2)</button>
+          <button class="project-tab-btn" data-category="marketing-ai">Marketing & AI Automations (3)</button>
+        </div>
+
+        <!-- Projects Grid (Dynamically Populated by data.js) -->
+        <div class="projects-grid" id="projectsGrid"></div>
+
+        <!-- Load More Container -->
+        <div class="load-more-container" id="loadMoreContainer">
+          <button class="load-more-btn" id="loadMoreBtn">Load More Deployments (+4) ✦</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Education & Academic Foundation -->
+    <section id="education">
+      <div class="container-1700">
+        <div class="section-badge">
+          <span class="badge-icon"></span>
+          <span>ACADEMIC FOUNDATION</span>
+        </div>
+        <h2 class="section-heading">Education & Qualifications.</h2>
+        <p class="section-subtext">
+          Solid engineering background providing deep software principles, systems architecture, and algorithmic problem-solving.
+        </p>
+
+        <div class="education-grid">
+          <!-- University of Karachi -->
+          <div class="education-card">
+            <div class="education-year">2020 – 2024</div>
+            <h3>University of Karachi</h3>
+            <div class="degree">BSc. Software Engineering</div>
+            <p>
+              Rigorous 4-year degree covering software architecture, database management systems, advanced web technologies, and systems engineering.
+            </p>
+          </div>
+
+          <!-- Govt. Poly Technical College -->
+          <div class="education-card">
+            <div class="education-year">2016 – 2019</div>
+            <h3>Govt. Poly Technical College</h3>
+            <div class="degree">CIT 3 Years Associate Diploma (SBTE)</div>
+            <p>
+              Specialized curriculum in Computer Information Technology, computing hardware, networking fundamentals, and programming foundations.
+            </p>
+          </div>
+
+          <!-- Super Career School -->
+          <div class="education-card">
+            <div class="education-year">2013 – 2015</div>
+            <h3>Super Career School</h3>
+            <div class="degree">Matriculation in Computer Science</div>
+            <p>
+              Early foundation in computer science principles, mathematical logic, and scientific problem-solving.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Technical SEO & Speed Audit Panel -->
+    <section id="seo-audit">
+      <div class="container-1700">
+        <div class="speed-audit-container">
+          <div>
+            <div class="section-badge">
+              <span class="badge-icon"></span>
+              <span>SPEED & TECHNICAL COMPLIANCE</span>
+            </div>
+            <h2 style="font-family: 'Syne', sans-serif; font-size: 2.4rem; margin-bottom: 16px; font-weight: 800;">
+              Never Lose A Deal To Slow Load Times.
+            </h2>
+            <p style="color: var(--text-slate); font-size: 1rem; line-height: 1.8; margin-bottom: 24px;">
+              Audited against Google's strictest mobile performance metrics. Every CMS and front-end interface built by Mohsin adheres to the highest benchmarks.
+            </p>
+            <div style="font-family: 'JetBrains Mono', monospace; font-size: 0.85rem; color: var(--text-light-grey); line-height: 2;">
+              <div>✔ First Contentful Paint (FCP): &lt; 0.4s</div>
+              <div>✔ Largest Contentful Paint (LCP): &lt; 0.8s</div>
+              <div>✔ Cumulative Layout Shift (CLS): 0.000</div>
+              <div>✔ Interaction to Next Paint (INP): &lt; 50ms</div>
+            </div>
+          </div>
+
+          <div class="audit-score-ring-wrap">
+            <div class="audit-circle">
+              <div class="score-donut">100</div>
+              <div class="score-label">PERFORMANCE</div>
+            </div>
+            <div class="audit-circle">
+              <div class="score-donut blue-ring">100</div>
+              <div class="score-label">ACCESSIBILITY</div>
+            </div>
+            <div class="audit-circle">
+              <div class="score-donut red-ring">100</div>
+              <div class="score-label">BEST PRACTICES</div>
+            </div>
+            <div class="audit-circle">
+              <div class="score-donut">100</div>
+              <div class="score-label">SEO GRAPH</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact">
+      <div class="container-1700">
+        <div class="contact-grid">
+          <div>
+            <div class="section-badge red-badge">
+              <span class="badge-icon"></span>
+              <span>GET IN TOUCH</span>
+            </div>
+            <h2 style="font-family: 'Syne', sans-serif; font-size: 2.8rem; font-weight: 800; line-height: 1.1; margin-bottom: 20px;">
+              Let's Build Something Exceptional.
+            </h2>
+            <p style="color: var(--text-slate); font-size: 1.05rem; line-height: 1.8; margin-bottom: 32px;">
+              Available for enterprise <strong>GoHighLevel (GHL) setups</strong>, custom <strong>CMS development</strong> (WordPress, Shopify, Webflow), <strong>n8n automation sprints</strong>, and <strong>Technical SEO optimization</strong>.
+            </p>
+
+            <div style="display: flex; flex-direction: column; gap: 16px;">
+              <a href="mailto:mohsincloudmail@gmail.com" style="display: flex; gap: 14px; align-items: center; color: var(--text-light-grey); text-decoration: none;">
+                <div style="width: 40px; height: 40px; border-radius: 8px; background: rgba(0, 102, 255, 0.1); border: 1px solid rgba(0, 102, 255, 0.25); display: flex; align-items: center; justify-content: center; color: var(--blue-glow); font-size: 1.1rem;">✉️</div>
+                <div>
+                  <div style="font-size: 0.75rem; color: var(--text-dim); font-family: 'JetBrains Mono';">DIRECT EMAIL</div>
+                  <div style="font-weight: 600;">mohsincloudmail@gmail.com</div>
+                </div>
+              </a>
+
+              <a href="tel:+923302893269" style="display: flex; gap: 14px; align-items: center; color: var(--text-light-grey); text-decoration: none;">
+                <div style="width: 40px; height: 40px; border-radius: 8px; background: rgba(255, 42, 84, 0.1); border: 1px solid rgba(255, 42, 84, 0.25); display: flex; align-items: center; justify-content: center; color: var(--red-glow); font-size: 1.1rem;">📞</div>
+                <div>
+                  <div style="font-size: 0.75rem; color: var(--text-dim); font-family: 'JetBrains Mono';">PHONE / WHATSAPP</div>
+                  <div style="font-weight: 600;">+92 330-2893269</div>
+                </div>
+              </a>
+
+              <div style="display: flex; gap: 14px; align-items: center; color: var(--text-light-grey);">
+                <div style="width: 40px; height: 40px; border-radius: 8px; background: rgba(0, 240, 255, 0.1); border: 1px solid rgba(0, 240, 255, 0.25); display: flex; align-items: center; justify-content: center; color: var(--blue-glow); font-size: 1.1rem;">📍</div>
+                <div>
+                  <div style="font-size: 0.75rem; color: var(--text-dim); font-family: 'JetBrains Mono';">LOCATION</div>
+                  <div style="font-weight: 600;">L-5 st.41, Block-15 Gulistan-e-Johar, Karachi</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <form id="contactForm">
+            <div class="contact-input-group">
+              <label>// YOUR NAME</label>
+              <input type="text" placeholder="e.g. Marcus Davis" required>
+            </div>
+            <div class="contact-input-group">
+              <label>// YOUR EMAIL</label>
+              <input type="email" placeholder="marcus@company.com" required>
+            </div>
+            <div class="contact-input-group">
+              <label>// PROJECT OR SERVICE INQUIRY</label>
+              <select>
+                <option>GoHighLevel (GHL) Automations & Funnel Architecture</option>
+                <option>Custom CMS Development (WordPress / Shopify / Webflow)</option>
+                <option>n8n & Make.com Autonomous AI Workflows</option>
+                <option>Technical SEO & Core Web Vitals Sprint</option>
+                <option>Full-Stack Consultation or Full-Time Opportunity</option>
+              </select>
+            </div>
+            <div class="contact-input-group">
+              <label>// PROJECT OVERVIEW & SCOPE</label>
+              <textarea placeholder="Describe your requirements, goals, or current bottlenecks..."></textarea>
+            </div>
+            <button type="submit" class="btn-action btn-primary-glow" style="width: 100%; justify-content: center; padding: 16px; font-size: 1rem;">
+              Send Inquiry to Mohsin ✦
+            </button>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <!-- Enterprise Footer -->
+    <footer class="app-footer">
+      <div class="container-1700 d-flex flex-column flex-md-row justify-content-between align-items-center gap-3 w-100">
+        <div>
+          &copy; 2026 <strong>MUHAMMAD MOHSIN</strong>. All rights reserved. Front End Developer & GHL Automation Expert.
+        </div>
+        <div style="display: flex; gap: 24px; align-items: center; font-family: 'JetBrains Mono', monospace;">
+          <a href="assets/docs/Mohsin_Resume.pdf" download="Muhammad_Mohsin_Resume.pdf" style="color: var(--blue-glow); text-decoration: none;">[RESUME.PDF]</a>
+          <a href="#hero" style="color: var(--text-dim); text-decoration: none;">[BACK TO TOP]</a>
+          <span style="color: #10b981;">STATUS: OPEN FOR WORK</span>
+        </div>
+      </div>
+    </footer>
+
+  </div>
+
+  <!-- Interactive Project Detail Modal -->
+  <div class="modal-overlay" id="projectModal">
+    <div class="modal-content-card">
+      <div class="modal-close-btn" id="modalClose">✕</div>
+      <div id="modalBody"></div>
+    </div>
+  </div>
+
+  <!-- Script Execution Pipeline -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="js/three-scene.js"></script>
+  <script src="js/hero-zone-bot.js"></script>
+  <script src="js/tilt-engine.js"></script>
+  <script src="js/data.js"></script>
+  <script src="js/animations.js"></script>
+</body>
+</html>
