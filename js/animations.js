@@ -136,30 +136,103 @@
     });
   }
 
-  // 3. Contact Form Submission Handler
+  // 3. Contact Form Submission Handler (Live Email Dispatch via FormSubmit to mohsincloudmail@gmail.com)
   const contactForm = document.getElementById('contactForm');
+  const contactFormStatus = document.getElementById('contactFormStatus');
+
   if (contactForm) {
-    contactForm.addEventListener('submit', (e) => {
+    contactForm.addEventListener('submit', async (e) => {
       e.preventDefault();
-      const submitBtn = contactForm.querySelector('button[type="submit"]');
+
+      const submitBtn = document.getElementById('contactSubmitBtn') || contactForm.querySelector('button[type="submit"]');
       const originalText = submitBtn.innerHTML;
 
-      submitBtn.innerHTML = '✦ Transmitting Protocol...';
-      submitBtn.style.opacity = '0.7';
-      submitBtn.disabled = true;
+      const nameInput = contactForm.querySelector('[name="name"]');
+      const emailInput = contactForm.querySelector('[name="email"]');
+      const inquiryInput = contactForm.querySelector('[name="inquiry_type"]');
+      const messageInput = contactForm.querySelector('[name="message"]');
 
-      setTimeout(() => {
-        submitBtn.innerHTML = '✔ Protocol Dispatched Successfully!';
-        submitBtn.style.background = 'linear-gradient(135deg, #10b981 0%, #059669 100%)';
+      const name = nameInput ? nameInput.value.trim() : '';
+      const email = emailInput ? emailInput.value.trim() : '';
+      const inquiryType = inquiryInput ? inquiryInput.value : 'General Inquiry';
+      const message = messageInput ? messageInput.value.trim() : '';
+
+      if (!name || !email || !message) {
+        showStatus('error', '⚠️ Please complete all required fields before sending.');
+        return;
+      }
+
+      // Visual sending state
+      submitBtn.innerHTML = '✦ Transmitting Protocol to Mohsin...';
+      submitBtn.style.opacity = '0.75';
+      submitBtn.disabled = true;
+      if (contactFormStatus) contactFormStatus.style.display = 'none';
+
+      try {
+        const response = await fetch('https://formsubmit.co/ajax/mohsincloudmail@gmail.com', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            'Accept': 'application/json'
+          },
+          body: JSON.stringify({
+            name: name,
+            email: email,
+            inquiry_type: inquiryType,
+            message: message,
+            _subject: `🚀 New Project Inquiry: ${name} — ${inquiryType}`,
+            _template: 'table',
+            _captcha: 'false'
+          })
+        });
+
+        const data = await response.json();
+
+        if (response.ok || data.success === 'true' || data.success === true) {
+          submitBtn.innerHTML = '✔ Protocol Dispatched Successfully!';
+          submitBtn.style.background = 'linear-gradient(135deg, #10b981 0%, #059669 100%)';
+          submitBtn.style.opacity = '1';
+
+          showStatus(
+            'success',
+            `<strong>✔ TRANSMISSION RECEIVED:</strong> Thank you, <strong>${escapeHtml(name)}</strong>! Your inquiry has been dispatched to <strong>mohsincloudmail@gmail.com</strong>. Mohsin will review your project details and follow up at <strong>${escapeHtml(email)}</strong> promptly.`
+          );
+
+          contactForm.reset();
+
+          setTimeout(() => {
+            submitBtn.innerHTML = originalText;
+            submitBtn.style.background = '';
+            submitBtn.disabled = false;
+          }, 6000);
+        } else {
+          throw new Error(data.message || 'Dispatch rejected');
+        }
+      } catch (err) {
+        console.error('Contact Form Dispatch Error:', err);
+        submitBtn.innerHTML = '⚠️ Transmission Delay — Direct Dispatch Available';
+        submitBtn.style.background = 'linear-gradient(135deg, #ff2a54 0%, #990022 100%)';
+        submitBtn.disabled = false;
         submitBtn.style.opacity = '1';
 
-        setTimeout(() => {
-          contactForm.reset();
-          submitBtn.innerHTML = originalText;
-          submitBtn.style.background = '';
-          submitBtn.disabled = false;
-        }, 4000);
-      }, 1200);
+        showStatus(
+          'error',
+          `<strong>⚠️ NOTICE:</strong> Direct API delivery encountered a network delay. You can dispatch directly to Mohsin at <a href="mailto:mohsincloudmail@gmail.com?subject=Project Inquiry - ${encodeURIComponent(name)}" style="color: #fff; text-decoration: underline; font-weight: 700;">mohsincloudmail@gmail.com</a> or WhatsApp <a href="https://wa.me/923302893269" target="_blank" style="color: #fff; text-decoration: underline; font-weight: 700;">+92 330-2893269</a>.`
+        );
+      }
     });
+
+    function showStatus(type, htmlContent) {
+      if (!contactFormStatus) return;
+      contactFormStatus.className = `form-status-alert form-status-${type}`;
+      contactFormStatus.innerHTML = htmlContent;
+      contactFormStatus.style.display = 'block';
+    }
+
+    function escapeHtml(str) {
+      return String(str).replace(/[&<>"']/g, function (m) {
+        return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#039;' }[m];
+      });
+    }
   }
 })();

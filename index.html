@@ -1019,35 +1019,41 @@
           </div>
 
           <form id="contactForm">
+            <!-- FormSubmit email configuration -->
+            <input type="hidden" name="_captcha" value="false">
+            <input type="hidden" name="_template" value="table">
+            <input type="hidden" name="_subject" value="🚀 New Client Inquiry from Portfolio Website">
+
             <div class="contact-input-group">
-              <label>// YOUR NAME</label>
-              <input type="text" placeholder="e.g. Marcus Davis" required>
+              <label for="userName">// YOUR NAME</label>
+              <input type="text" id="userName" name="name" placeholder="e.g. Marcus Davis" required autocomplete="name">
             </div>
             <div class="contact-input-group">
-              <label>// YOUR EMAIL</label>
-              <input type="email" placeholder="marcus@company.com" required>
+              <label for="userEmail">// YOUR EMAIL</label>
+              <input type="email" id="userEmail" name="email" placeholder="marcus@company.com" required autocomplete="email">
             </div>
             <div class="contact-input-group">
-              <label>// PROJECT OR SERVICE INQUIRY</label>
-              <select>
-                <option>GoHighLevel (GHL) Full Ecosystem & Funnel Architecture</option>
-                <option>Multi-CRM Setup & Sync (HubSpot, EngageBay, Monday.com, GHL)</option>
-                <option>Voice AI Agents & Live Chat (Vapi, ElevenLabs, Claude, ChatGPT)</option>
-                <option>Agentic AI Workflows (Cursor IDE, Claude 3.7, GPT-4o, Grok)</option>
-                <option>Autonomous Middleware Pipelines (n8n, Make.com, Zapier)</option>
-                <option>Custom CMS Website Development (WordPress / Shopify / Webflow)</option>
-                <option>Technical SEO & Core Web Vitals Sprint (100/100 CWV)</option>
-                <option>Full-Stack Architecture or Full-Time Engineering Role</option>
+              <label for="userInquiry">// PROJECT OR SERVICE INQUIRY</label>
+              <select id="userInquiry" name="inquiry_type" required>
+                <option value="GoHighLevel (GHL) Full Ecosystem & Funnel Architecture">GoHighLevel (GHL) Full Ecosystem & Funnel Architecture</option>
+                <option value="Multi-CRM Setup & Sync (HubSpot, EngageBay, Monday.com, GHL)">Multi-CRM Setup & Sync (HubSpot, EngageBay, Monday.com, GHL)</option>
+                <option value="Voice AI Agents & Live Chat (Vapi, ElevenLabs, Claude, ChatGPT)">Voice AI Agents & Live Chat (Vapi, ElevenLabs, Claude, ChatGPT)</option>
+                <option value="Agentic AI Workflows (Cursor IDE, Claude 3.7, GPT-4o, Grok)">Agentic AI Workflows (Cursor IDE, Claude 3.7, GPT-4o, Grok)</option>
+                <option value="Autonomous Middleware Pipelines (n8n, Make.com, Zapier)">Autonomous Middleware Pipelines (n8n, Make.com, Zapier)</option>
+                <option value="Custom CMS Website Development (WordPress / Shopify / Webflow)">Custom CMS Website Development (WordPress / Shopify / Webflow)</option>
+                <option value="Technical SEO & Core Web Vitals Sprint (100/100 CWV)">Technical SEO & Core Web Vitals Sprint (100/100 CWV)</option>
+                <option value="Full-Stack Architecture or Full-Time Engineering Role">Full-Stack Architecture or Full-Time Engineering Role</option>
               </select>
             </div>
             <div class="contact-input-group">
-              <label>// PROJECT OVERVIEW & SCOPE</label>
-              <textarea placeholder="Describe your requirements, goals, or current bottlenecks..."></textarea>
+              <label for="userMessage">// PROJECT OVERVIEW & SCOPE</label>
+              <textarea id="userMessage" name="message" placeholder="Describe your requirements, goals, or current bottlenecks..." required></textarea>
             </div>
-            <button type="submit" class="btn-action btn-primary-glow"
+            <button type="submit" class="btn-action btn-primary-glow" id="contactSubmitBtn"
               style="width: 100%; justify-content: center; padding: 16px; font-size: 1rem;">
               Send Inquiry to Mohsin ✦
             </button>
+            <div id="contactFormStatus" style="display: none;"></div>
           </form>
         </div>
       </div>
