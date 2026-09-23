@@ -2968,5 +2968,132 @@ a:hover {
   background: linear-gradient(90deg, transparent, var(--red-glow), transparent);
 }
 
+/* ==========================================================================
+   TECHNICAL SEO CAPABILITY MATRIX GRID
+   ========================================================================== */
+.tech-seo-matrix-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  margin-top: 48px;
+}
+
+@media (max-width: 1200px) {
+  .tech-seo-matrix-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .tech-seo-matrix-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.tech-seo-card {
+  background: rgba(9, 12, 20, 0.75);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-md);
+  padding: 28px 24px;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  position: relative;
+  overflow: hidden;
+}
+
+.tech-seo-card:hover {
+  transform: translateY(-4px);
+  border-color: rgba(0, 102, 255, 0.45);
+  box-shadow: 0 14px 40px rgba(0, 102, 255, 0.16);
+}
+
+.tech-seo-card.red-accent:hover {
+  border-color: rgba(255, 42, 84, 0.45);
+  box-shadow: 0 14px 40px rgba(255, 42, 84, 0.16);
+}
+
+.tech-seo-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+}
+
+.tech-seo-card-icon {
+  font-size: 1.6rem;
+  width: 44px;
+  height: 44px;
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.04);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid var(--border-subtle);
+}
+
+.tech-seo-card-badge {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.68rem;
+  font-weight: 600;
+  padding: 4px 10px;
+  border-radius: var(--radius-full);
+  background: rgba(0, 102, 255, 0.1);
+  border: 1px solid rgba(0, 102, 255, 0.3);
+  color: var(--blue-glow);
+}
+
+.tech-seo-card.red-accent .tech-seo-card-badge {
+  background: rgba(255, 42, 84, 0.1);
+  border-color: rgba(255, 42, 84, 0.3);
+  color: var(--red-glow);
+}
+
+.tech-seo-card-title {
+  font-family: 'Syne', sans-serif;
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: #fff;
+  margin-bottom: 8px;
+}
+
+.tech-seo-card-desc {
+  font-size: 0.86rem;
+  color: var(--text-slate);
+  line-height: 1.6;
+  margin-bottom: 18px;
+}
+
+.tech-seo-checklist {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.tech-seo-checklist li {
+  font-size: 0.82rem;
+  color: #cbd5e1;
+  line-height: 1.5;
+  display: flex;
+  gap: 8px;
+  align-items: flex-start;
+}
+
+.tech-seo-checklist li strong {
+  color: #ffffff;
+}
+
+.tech-seo-check-icon {
+  color: #10b981;
+  font-size: 0.85rem;
+  flex-shrink: 0;
+  margin-top: 1px;
+}
+
+
 
 

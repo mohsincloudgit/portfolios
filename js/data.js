@@ -161,27 +161,29 @@ const portfolioProjects = [
   },
   {
     id: 'technical-seo-programmatic',
-    title: 'Programmatic Technical SEO & Core Web Vitals Sprint',
+    title: 'Full-Spectrum Technical SEO, Crawlability & Core Web Vitals Suite',
     category: 'marketing-ai',
-    categoryLabel: 'Marketing & AI Automations',
-    company: 'SOURCE CODE',
-    role: 'Front End Developer & SEO Specialist',
-    period: '2024 – 2025',
-    badge: '100/100 CWV &bull; SEO SPRINT',
+    categoryLabel: 'Technical SEO & Performance',
+    company: 'SOURCE CODE & Enterprise Clients',
+    role: 'Technical SEO & Front End Architect',
+    period: '2024 – Present',
+    badge: 'TECHNICAL SEO &bull; 100/100 CWV',
     badgeColor: '#00f0ff',
     image: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=1200&auto=format&fit=crop',
-    overview: 'Comprehensive technical SEO architecture achieving a flawless 100/100 Google Lighthouse Core Web Vitals score while driving a 420% YoY increase in organic search traffic.',
+    overview: 'Full-spectrum Technical SEO architecture engineered for maximum organic dominance. Covers Meta Titles & Descriptions, Crawlability & Indexability, dynamic XML Sitemaps, Canonicalization (rel="canonical"), HTTPS & 301/404 redirect governance, Silo Site Architecture, 100/100 Page Speed (LCP < 0.8s, INP < 50ms), Mobile SEO, JavaScript SEO (CSR/SSR hydration), Schema.org JSON-LD graphs, HTML5 semantic structure, WebP/AVIF images, pagination, internal linking silos, server security headers, and Google Search Console & GA4 telemetry.',
     architecture: [
-      'Hierarchical Schema.org JSON-LD graphs (Organization, Service, FAQ, Breadcrumbs, Product).',
-      'Automated XML sitemap cluster with Google Search Console indexing webhooks.',
-      'Sub-400ms Time-To-First-Byte (TTFB) optimization via server-side edge caching.',
-      'Zero layout shift (CLS = 0.000) and ultra-low input latency (INP < 50ms).'
+      'Crawlability & Indexability Engineering: Dynamic XML sitemap clusters (news, images, index), Robots.txt directive rules, meta robots tags, and URL inspection monitoring.',
+      'Canonicalization & 301/404 Redirect Governance: Self-referential and cross-domain canonical enforcement (rel="canonical") eliminating duplicate content, wildcard 301/302 redirect mapping tables, and soft 404 eradication.',
+      'Site Architecture, Semantic URLs & Internal Linking: Strict topic-silo hierarchy, clean parameterized URL normalization, pagination markup (rel="next"/rel="prev"), and strategic internal link equity distribution.',
+      'JavaScript SEO & Mobile-First Rendering: Resolved client-side CSR/SSR hydration pitfalls, ensured dynamic DOM content indexing, and achieved 100% mobile-first viewport parity.',
+      'Schema.org JSON-LD Graphs & Semantic HTML: Multi-entity nested structured data (Organization, LocalBusiness, ProfessionalService, FAQPage, BreadcrumbList, Product, Article) and semantic HTML5 landmark tags.',
+      'Core Web Vitals, Edge Server Caching & Media Compression: WebP/AVIF next-gen media with native lazy loading, sub-300ms TTFB edge caching, HSTS/CSP security headers, GSC index coverage, and GA4 telemetry.'
     ],
-    techStack: ['Schema.org', 'Google Search Console', 'Lighthouse 100', 'Edge Caching', 'Critical CSS', 'Technical SEO'],
+    techStack: ['Crawlability & Indexability', 'Robots.txt & XML Sitemaps', 'Canonical & 301/404', 'Schema.org JSON-LD', 'JavaScript & Mobile SEO', 'Core Web Vitals (100/100)', 'Google Search Console', 'Google Analytics 4', 'Server Security & HTTPS'],
     metrics: [
-      { label: 'Core Vitals', value: '100 / 100' },
+      { label: 'Lighthouse SEO', value: '100 / 100' },
       { label: 'Organic Traffic', value: '+420% YoY' },
-      { label: 'LCP Score', value: '0.6s' }
+      { label: 'LCP / Core Vitals', value: '0.6s / 100' }
     ]
   },
   {
