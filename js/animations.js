@@ -205,6 +205,16 @@
             submitBtn.style.background = '';
             submitBtn.disabled = false;
           }, 6000);
+        } else if (data.message && data.message.toLowerCase().includes('activation')) {
+          submitBtn.innerHTML = '📬 Check Inbox for Activation';
+          submitBtn.style.background = 'linear-gradient(135deg, #f59e0b 0%, #d97706 100%)';
+          submitBtn.style.opacity = '1';
+          submitBtn.disabled = false;
+
+          showStatus(
+            'error',
+            `<strong>📬 ONE-TIME ACTIVATION REQUIRED:</strong> FormSubmit has sent a confirmation email to <strong>mohsincloudmail@gmail.com</strong>. Please open your Gmail, click the <strong>"Activate Form"</strong> button, and your form will be 100% active forever!`
+          );
         } else {
           throw new Error(data.message || 'Dispatch rejected');
         }
