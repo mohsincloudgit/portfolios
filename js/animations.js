@@ -150,11 +150,13 @@
       const nameInput = contactForm.querySelector('[name="name"]');
       const emailInput = contactForm.querySelector('[name="email"]');
       const inquiryInput = contactForm.querySelector('[name="inquiry_type"]');
+      const engagementInput = contactForm.querySelector('[name="engagement_type"]');
       const messageInput = contactForm.querySelector('[name="message"]');
 
       const name = nameInput ? nameInput.value.trim() : '';
       const email = emailInput ? emailInput.value.trim() : '';
       const inquiryType = inquiryInput ? inquiryInput.value : 'General Inquiry';
+      const engagementType = engagementInput ? engagementInput.value : 'Project-Based Contract';
       const message = messageInput ? messageInput.value.trim() : '';
 
       if (!name || !email || !message) {
@@ -179,10 +181,12 @@
             name: name,
             email: email,
             inquiry_type: inquiryType,
+            engagement_type: engagementType,
             message: message,
-            _subject: `🚀 New Project Inquiry: ${name} — ${inquiryType}`,
+            _subject: `🚀 New Client Inquiry: ${name} [${engagementType}] — ${inquiryType}`,
             _template: 'table',
-            _captcha: 'false'
+            _captcha: 'false',
+            _autoresponse: `Thank you for reaching out to Muhammad Mohsin!\n\nYour project inquiry has been received with the following details:\n- Engagement Model: ${engagementType}\n- Primary Service: ${inquiryType}\n- Message: "${message}"\n\nMohsin will review your scope and follow up directly at this email address within 24 hours.\n\nDirect Contacts:\n• WhatsApp: +92 330-2893269\n• Email: mohsincloudmail@gmail.com\n• Portfolio: https://github.com/mohsincloudgit/portfolios`
           })
         });
 
@@ -195,7 +199,7 @@
 
           showStatus(
             'success',
-            `<strong>✔ TRANSMISSION RECEIVED:</strong> Thank you, <strong>${escapeHtml(name)}</strong>! Your inquiry has been dispatched to <strong>mohsincloudmail@gmail.com</strong>. Mohsin will review your project details and follow up at <strong>${escapeHtml(email)}</strong> promptly.`
+            `<strong>✔ TRANSMISSION RECEIVED:</strong> Thank you, <strong>${escapeHtml(name)}</strong>! Your inquiry for <strong>${escapeHtml(engagementType)}</strong> (${escapeHtml(inquiryType)}) has been dispatched. A confirmation copy has also been sent to your email at <strong>${escapeHtml(email)}</strong>. Mohsin will review your project details and follow up promptly.`
           );
 
           contactForm.reset();
@@ -359,6 +363,7 @@
       const email = popupContactForm.querySelector('[name="email"]').value.trim();
       const phone = popupContactForm.querySelector('[name="phone"]')?.value.trim() || 'N/A';
       const inquiryType = popupContactForm.querySelector('[name="inquiry_type"]').value;
+      const engagementType = popupContactForm.querySelector('[name="engagement_type"]')?.value || 'Project-Based Contract';
       const message = popupContactForm.querySelector('[name="message"]').value.trim();
 
       if (!name || !email || !message) {
@@ -383,10 +388,12 @@
             email: email,
             phone: phone,
             inquiry_type: inquiryType,
+            engagement_type: engagementType,
             message: message,
-            _subject: `🔥 Priority Strategy Call Request: ${name} (${inquiryType})`,
+            _subject: `🔥 Priority Strategy Call Request: ${name} [${engagementType}] (${inquiryType})`,
             _template: 'table',
-            _captcha: 'false'
+            _captcha: 'false',
+            _autoresponse: `Thank you for requesting a priority strategy call with Muhammad Mohsin!\n\nYour discovery details:\n- Engagement Model: ${engagementType}\n- Primary Service: ${inquiryType}\n- Contact Phone: ${phone}\n- Project Goals: "${message}"\n\nMohsin will review your goals and reach out to schedule our session within 24 hours.\n\nDirect Contacts:\n• WhatsApp: +92 330-2893269\n• Email: mohsincloudmail@gmail.com\n• Portfolio: https://github.com/mohsincloudgit/portfolios`
           })
         });
 
@@ -399,7 +406,7 @@
 
           showPopupStatus(
             'success',
-            `<strong>✔ TRANSMISSION RECEIVED:</strong> Thank you, <strong>${escapeHtml(name)}</strong>! Your priority discovery request has been delivered to <strong>mohsincloudmail@gmail.com</strong>. Mohsin will reach out to <strong>${escapeHtml(email)}</strong> promptly!`
+            `<strong>✔ TRANSMISSION RECEIVED:</strong> Thank you, <strong>${escapeHtml(name)}</strong>! Your priority discovery request for <strong>${escapeHtml(engagementType)}</strong> has been delivered. A confirmation copy has also been sent to your email at <strong>${escapeHtml(email)}</strong>.`
           );
 
           popupContactForm.reset();
