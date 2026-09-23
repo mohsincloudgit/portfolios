@@ -2530,3 +2530,114 @@ a:hover {
   }
 }
 
+/* ==========================================================================
+   GOHIGHLEVEL (GHL) DEDICATED ARCHITECTURE SUITE
+   ========================================================================== */
+.ghl-suite-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 24px;
+}
+
+@media (max-width: 991px) {
+  .ghl-suite-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.ghl-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-md);
+  padding: 30px;
+  position: relative;
+  overflow: hidden;
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  transition: all 0.3s cubic-bezier(0.2, 0, 0, 1);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.ghl-card:hover {
+  border-color: rgba(0, 102, 255, 0.45);
+  transform: translateY(-4px);
+  box-shadow: 0 20px 45px rgba(0, 0, 0, 0.6), 0 0 30px rgba(0, 102, 255, 0.12);
+}
+
+.ghl-card.red-accent:hover {
+  border-color: rgba(255, 42, 84, 0.45);
+  box-shadow: 0 20px 45px rgba(0, 0, 0, 0.6), 0 0 30px rgba(255, 42, 84, 0.12);
+}
+
+.ghl-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 18px;
+}
+
+.ghl-card-icon {
+  width: 50px;
+  height: 50px;
+  border-radius: 12px;
+  background: rgba(0, 102, 255, 0.08);
+  border: 1px solid rgba(0, 102, 255, 0.25);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  color: var(--blue-glow);
+}
+
+.ghl-card.red-accent .ghl-card-icon {
+  background: rgba(255, 42, 84, 0.08);
+  border-color: rgba(255, 42, 84, 0.25);
+  color: var(--red-glow);
+}
+
+.ghl-card-badge {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  padding: 4px 10px;
+  border-radius: var(--radius-full);
+  background: rgba(0, 102, 255, 0.1);
+  border: 1px solid rgba(0, 102, 255, 0.3);
+  color: var(--blue-glow);
+}
+
+.ghl-card.red-accent .ghl-card-badge {
+  background: rgba(255, 42, 84, 0.1);
+  border-color: rgba(255, 42, 84, 0.3);
+  color: var(--red-glow);
+}
+
+.ghl-card-title {
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: var(--text-white);
+  margin-bottom: 10px;
+}
+
+.ghl-card-text {
+  font-size: 0.92rem;
+  color: var(--text-slate);
+  line-height: 1.7;
+  margin-bottom: 20px;
+}
+
+.ghl-meta-strip {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  align-items: center;
+  padding: 16px 20px;
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-md);
+  margin-bottom: 36px;
+}
+

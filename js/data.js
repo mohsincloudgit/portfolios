@@ -32,27 +32,27 @@ const portfolioProjects = [
   },
   {
     id: 'multi-crm-middleware',
-    title: 'Multi-CRM Bidirectional Sync Middleware',
+    title: 'Enterprise Multi-CRM Synchronization Middleware',
     category: 'crm-ghl',
-    categoryLabel: 'CRM & GHL Automations',
+    categoryLabel: 'Multi-CRM Architecture',
     company: 'Enterprise Client Solutions',
-    role: 'Middleware Engineer',
-    period: '2024 – 2025',
-    badge: 'CRM SYNC &bull; ZERO DATA LOSS',
+    role: 'CRM & Middleware Architect',
+    period: '2024 – 2026',
+    badge: 'GHL &bull; HUBSPOT &bull; ENGAGEBAY &bull; MONDAY',
     badgeColor: '#ff2a54',
     image: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=1200&auto=format&fit=crop',
-    overview: 'Engineered a resilient bidirectional sync bridge reconciling leads, contacts, and opportunities between GoHighLevel, HubSpot, and Zoho CRM with automated conflict resolution.',
+    overview: 'Engineered a resilient multi-CRM infrastructure reconciling pipelines, leads, and opportunities across GoHighLevel (GHL), HubSpot CRM, EngageBay CRM, and Monday.com CRM with automated conflict resolution.',
     architecture: [
-      'Event-driven webhook listeners capturing contact updates with sub-200ms round-trip latency.',
-      'Deduplication algorithm hashing unique emails and phone numbers to prevent duplicate entries.',
-      'Dead-letter queue (DLQ) with automated exponential backoff retries protecting against API rate limits.',
-      'Comprehensive audit dashboard logging sync events and error telemetry.'
+      'Event-driven webhook listeners capturing contact updates across GoHighLevel, HubSpot CRM, EngageBay CRM, and Monday.com CRM with sub-200ms latency.',
+      'Deduplication algorithm hashing unique emails and phone numbers to eliminate duplicate contact entries across all CRM instances.',
+      'Dead-letter queue (DLQ) with automated exponential backoff retries protecting against API rate limits and network drops.',
+      'Unified executive audit dashboard tracking bi-directional sync events, stage movements, and error telemetry in real time.'
     ],
-    techStack: ['HubSpot API', 'GHL Webhooks', 'Zoho CRM', 'Node.js', 'Zapier Enterprise', 'PostgreSQL'],
+    techStack: ['GoHighLevel (GHL)', 'HubSpot CRM', 'EngageBay CRM', 'Monday.com CRM', 'Node.js', 'Zapier / Make', 'PostgreSQL'],
     metrics: [
       { label: 'Sync Latency', value: '< 180ms' },
       { label: 'Data Accuracy', value: '99.98%' },
-      { label: 'Discrepancies', value: '0.00%' }
+      { label: 'CRMs Unified', value: '4 Platforms' }
     ]
   },
 
@@ -109,6 +109,31 @@ const portfolioProjects = [
   },
 
   // --- Category: Marketing & AI Automations ---
+  {
+    id: 'voice-ai-live-agents',
+    title: 'Autonomous Voice AI Calling & Live Chat Ecosystem',
+    category: 'marketing-ai',
+    categoryLabel: 'Voice AI & Generative Chat',
+    company: 'Carpe Diem & NextGen AI',
+    role: 'AI Systems Architect',
+    period: '2025 – Present',
+    badge: 'VAPI &bull; ELEVENLABS &bull; CLAUDE &bull; CHATGPT',
+    badgeColor: '#00f0ff',
+    image: 'https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&w=1200&auto=format&fit=crop',
+    overview: 'Production deployment of real-time Voice AI calling agents and omnichannel live chat systems engineered with Vapi, ElevenLabs, Claude 3.5/3.7, ChatGPT (GPT-4o), Cursor IDE, and Grok (xAI) for sub-second lead qualification and booking.',
+    architecture: [
+      'Bidirectional low-latency Voice AI phone agents powered by Vapi telephony and ElevenLabs neural voice synthesis for inbound support and outbound scheduling.',
+      'Omnichannel live chat widgets powered by Claude 3.5 Sonnet and ChatGPT APIs with strict enterprise guardrails and context injection.',
+      'Instant calendar sync directly locking discovery slots into GoHighLevel (GHL) and syncing contact telemetry into HubSpot, EngageBay, and Monday.com.',
+      'Rapidly engineered and maintained using Cursor IDE agentic rules and Grok (xAI) dynamic search grounding.'
+    ],
+    techStack: ['Vapi Voice AI', 'ElevenLabs', 'Claude 3.5 / 3.7', 'ChatGPT (OpenAI)', 'Cursor AI', 'Grok (xAI)', 'GHL Calendar API', 'Webhooks'],
+    metrics: [
+      { label: 'Voice Latency', value: '< 650ms' },
+      { label: 'Booking Rate', value: '+74% Lift' },
+      { label: 'Live Resolution', value: '92.6%' }
+    ]
+  },
   {
     id: 'carpe-diem-n8n-agents',
     title: 'Autonomous n8n Lead Qualification & AI Agent Pipeline',
