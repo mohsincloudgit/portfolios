@@ -31,6 +31,40 @@
 
 <body>
 
+  <!-- High-Tech Cyberpunk Welcome Preloader -->
+  <div id="sitePreloader" class="site-preloader">
+    <div class="preloader-backdrop-glow"></div>
+    <div class="preloader-inner">
+      <div class="preloader-avatar-ring">
+        <div class="preloader-logo">MM</div>
+        <div class="preloader-pulse-ring"></div>
+      </div>
+      
+      <div class="preloader-badge">
+        <span class="pulse-dot"></span>
+        <span id="preloaderPhase">ANTIGRAVITY OS // INITIALIZING</span>
+      </div>
+
+      <h1 class="preloader-title">
+        MOHSIN<span class="blue">.DEV</span> <span class="red">// ARCHITECT</span>
+      </h1>
+
+      <div class="preloader-welcome-box">
+        <div class="preloader-welcome-headline">Welcome to Muhammad Mohsin's Portfolio</div>
+        <div class="preloader-welcome-sub">Enterprise GoHighLevel (GHL) &bull; Multi-CRM &bull; Agentic &amp; Voice AI Solutions</div>
+      </div>
+
+      <div class="preloader-track-wrap">
+        <div class="preloader-bar" id="preloaderProgressBar"></div>
+      </div>
+
+      <div class="preloader-telemetry-row">
+        <span class="preloader-log" id="preloaderLogText">Loading system core &amp; WebGL visualizer...</span>
+        <span class="preloader-percentage" id="preloaderPercentage">0%</span>
+      </div>
+    </div>
+  </div>
+
   <!-- 3D WebGL Layer & Custom Cursor -->
   <div id="webgl-container"></div>
   <div class="grid-overlay"></div>
@@ -62,7 +96,7 @@
             class="btn-action btn-red-outline" style="padding: 8px 16px; font-size: 0.8rem;">
             Download Resume (PDF) 📥
           </a>
-          <a href="#contact" class="btn-action btn-primary-glow">Book Strategy Call →</a>
+          <a href="#contact" class="btn-action btn-primary-glow open-popup-trigger">Book Strategy Call →</a>
         </div>
       </div>
     </header>
@@ -296,10 +330,15 @@
                 </div>
               </div>
 
-              <a href="assets/docs/Mohsin_Resume.pdf" download="Muhammad_Mohsin_Resume.pdf"
-                class="btn-action btn-primary-glow">
-                Download Full Resume (PDF) 📄
-              </a>
+              <div style="display: flex; flex-wrap: wrap; gap: 14px; align-items: center;">
+                <a href="assets/docs/Mohsin_Resume.pdf" download="Muhammad_Mohsin_Resume.pdf"
+                  class="btn-action btn-primary-glow">
+                  Download Full Resume (PDF) 📄
+                </a>
+                <button type="button" class="btn-action btn-red-glow open-popup-trigger" style="padding: 12px 22px; font-size: 0.88rem;">
+                  Book Discovery Call ✦
+                </button>
+              </div>
             </div>
           </div>
         </div>
@@ -573,6 +612,19 @@
             </div>
           </div>
         </div>
+
+        <!-- Section Action CTA Banner -->
+        <div class="section-cta-banner mt-5">
+          <div class="d-flex flex-column flex-md-row align-items-center justify-content-between gap-4 w-100">
+            <div>
+              <div style="font-family: 'JetBrains Mono', monospace; font-size: 0.74rem; color: var(--blue-glow); letter-spacing: 1.5px; margin-bottom: 6px;">// TAILORED AUTOMATION &amp; CRM INTEGRATION</div>
+              <h4 style="font-family: 'Syne', sans-serif; font-size: 1.35rem; font-weight: 700; color: #fff; margin: 0;">Need an enterprise CRM sync or autonomous AI workflow blueprint?</h4>
+            </div>
+            <button type="button" class="btn-action btn-primary-glow open-popup-trigger" style="white-space: nowrap; padding: 14px 28px;">
+              Request Solution Blueprint ✦
+            </button>
+          </div>
+        </div>
       </div>
     </section>
 
@@ -834,6 +886,19 @@
             </div>
           </div>
         </div>
+
+        <!-- Dedicated GHL Section Action Banner -->
+        <div class="section-cta-banner red-flare mt-5">
+          <div class="d-flex flex-column flex-md-row align-items-center justify-content-between gap-4 w-100">
+            <div>
+              <div style="font-family: 'JetBrains Mono', monospace; font-size: 0.74rem; color: var(--red-glow); letter-spacing: 1.5px; margin-bottom: 6px;">// GHL SNAPSHOT &amp; VOICE AI ARCHITECTURE</div>
+              <h4 style="font-family: 'Syne', sans-serif; font-size: 1.35rem; font-weight: 700; color: #fff; margin: 0;">Ready to scale your agency with custom GHL funnels, 2-way SMS &amp; Vapi Voice AI?</h4>
+            </div>
+            <button type="button" class="btn-action btn-red-glow open-popup-trigger" style="white-space: nowrap; padding: 14px 28px;">
+              Deploy GHL Snapshot ✦
+            </button>
+          </div>
+        </div>
       </div>
     </section>
 
@@ -852,18 +917,21 @@
 
         <!-- Interactive Filter Tabs -->
         <div class="project-tabs-container">
-          <button class="project-tab-btn active" data-category="all">All Systems (8)</button>
+          <button class="project-tab-btn active" data-category="all">All Systems (9)</button>
           <button class="project-tab-btn" data-category="crm-ghl">CRM & GHL Automations (3)</button>
           <button class="project-tab-btn" data-category="cms">CMS Development (2)</button>
-          <button class="project-tab-btn" data-category="marketing-ai">Marketing & AI Automations (3)</button>
+          <button class="project-tab-btn" data-category="marketing-ai">Marketing & AI Automations (4)</button>
         </div>
 
         <!-- Projects Grid (Dynamically Populated by data.js) -->
         <div class="projects-grid" id="projectsGrid"></div>
 
         <!-- Load More Container -->
-        <div class="load-more-container" id="loadMoreContainer">
+        <div class="load-more-container" id="loadMoreContainer" style="display: flex; flex-wrap: wrap; gap: 14px; justify-content: center; align-items: center;">
           <button class="load-more-btn" id="loadMoreBtn">Load More Deployments (+4) ✦</button>
+          <button type="button" class="btn-action btn-red-glow open-popup-trigger" style="padding: 14px 28px; font-size: 0.88rem;">
+            Build Custom System ↗
+          </button>
         </div>
       </div>
     </section>
@@ -940,6 +1008,9 @@
               <div>✔ Cumulative Layout Shift (CLS): 0.000</div>
               <div>✔ Interaction to Next Paint (INP): &lt; 50ms</div>
             </div>
+            <button type="button" class="btn-action btn-primary-glow open-popup-trigger mt-4" style="font-size: 0.88rem; padding: 12px 24px;">
+              Schedule 100/100 CWV Sprint ✦
+            </button>
           </div>
 
           <div class="audit-score-ring-wrap">
@@ -1081,6 +1152,87 @@
     <div class="modal-content-card">
       <div class="modal-close-btn" id="modalClose">✕</div>
       <div id="modalBody"></div>
+    </div>
+  </div>
+
+  <!-- Eye-Catching Strategy Session & Inquiries Popup Modal -->
+  <div class="modal-overlay" id="contactPopupModal">
+    <div class="modal-content-card contact-popup-card">
+      <div class="modal-close-btn" id="contactPopupClose" title="Close Modal">✕</div>
+      
+      <!-- Top Cyber Tag -->
+      <div class="popup-top-tag">
+        <span class="pulse-dot"></span>
+        <span>PRIORITY ACCESS &bull; 15-MIN DISCOVERY SESSION</span>
+      </div>
+
+      <h2 class="popup-title">
+        Accelerate Growth With <span class="gradient-text">GHL &amp; Voice AI</span>
+      </h2>
+      <p class="popup-subtext">
+        Connect directly with Muhammad Mohsin. Claim a dedicated architecture discovery session or request a custom GoHighLevel (GHL), Multi-CRM, and Voice AI blueprint for your business.
+      </p>
+
+      <!-- Popup Form -->
+      <form id="popupContactForm" class="popup-form-grid">
+        <input type="hidden" name="_captcha" value="false">
+        <input type="hidden" name="_template" value="table">
+        <input type="hidden" name="_subject" value="🔥 Priority Strategy Call Request from Portfolio">
+
+        <div class="row g-3">
+          <div class="col-12 col-md-6">
+            <div class="contact-input-group">
+              <label for="popupName">// YOUR NAME</label>
+              <input type="text" id="popupName" name="name" placeholder="e.g. Marcus Davis" required autocomplete="name">
+            </div>
+          </div>
+          <div class="col-12 col-md-6">
+            <div class="contact-input-group">
+              <label for="popupEmail">// YOUR EMAIL</label>
+              <input type="email" id="popupEmail" name="email" placeholder="marcus@company.com" required autocomplete="email">
+            </div>
+          </div>
+
+          <div class="col-12 col-md-6">
+            <div class="contact-input-group">
+              <label for="popupPhone">// PHONE / WHATSAPP</label>
+              <input type="tel" id="popupPhone" name="phone" placeholder="+92 300 1234567" autocomplete="tel">
+            </div>
+          </div>
+          <div class="col-12 col-md-6">
+            <div class="contact-input-group">
+              <label for="popupService">// PRIMARY REQUIREMENT</label>
+              <select id="popupService" name="inquiry_type" required>
+                <option value="GoHighLevel (GHL) Full Ecosystem & Funnel Architecture">GoHighLevel (GHL) Full Ecosystem &amp; Funnels</option>
+                <option value="Voice AI Calling Agents (Vapi + ElevenLabs)">Voice AI Agents (Vapi + ElevenLabs)</option>
+                <option value="Multi-CRM Setup & Sync (HubSpot, EngageBay, Monday, GHL)">Multi-CRM Setup (HubSpot, EngageBay, Monday)</option>
+                <option value="Agentic AI Workflows (Claude 3.7, ChatGPT, Cursor, Grok)">Agentic AI Workflows (Claude, ChatGPT, Grok)</option>
+                <option value="Autonomous Middleware Pipelines (n8n, Make.com, Zapier)">Autonomous Pipelines (n8n, Make, Zapier)</option>
+                <option value="Custom CMS Development (WordPress / Shopify / Webflow)">Custom CMS Development (WordPress / Shopify)</option>
+                <option value="Technical SEO & 100/100 Core Web Vitals Sprint">Technical SEO &amp; 100/100 Core Web Vitals</option>
+                <option value="Full-Time Architecture Role / Retainer Opportunity">Full-Time Architecture Role / Retainer</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="col-12">
+            <div class="contact-input-group">
+              <label for="popupMessage">// PROJECT GOALS &amp; REQUIREMENTS</label>
+              <textarea id="popupMessage" name="message" rows="3" placeholder="Briefly describe your agency goals, funnels needed, or CRM integration bottlenecks..." required></textarea>
+            </div>
+          </div>
+        </div>
+
+        <button type="submit" class="btn-action btn-primary-glow w-100 mt-3" id="popupSubmitBtn" style="justify-content: center; padding: 15px; font-size: 1rem;">
+          Schedule Strategy Call &amp; Blueprint ✦
+        </button>
+
+        <div id="popupFormStatus" style="display: none;"></div>
+
+        <div class="popup-footer-guarantee">
+          <span>🔒 100% Confidential</span> &bull; <span>⚡ Sub-24hr Response</span> &bull; <span>✉️ Direct Inbox Delivery</span>
+        </div>
+      </form>
     </div>
   </div>
 

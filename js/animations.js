@@ -245,4 +245,210 @@
       });
     }
   }
+
+  // ==========================================================================
+  // 4. CYBERPUNK WELCOME PRELOADER CONTROLLER
+  // ==========================================================================
+  const preloader = document.getElementById('sitePreloader');
+  const progressBar = document.getElementById('preloaderProgressBar');
+  const percentageEl = document.getElementById('preloaderPercentage');
+  const phaseEl = document.getElementById('preloaderPhase');
+  const logTextEl = document.getElementById('preloaderLogText');
+
+  if (preloader && progressBar && percentageEl) {
+    let progress = 0;
+    const telemetryPhases = [
+      { at: 15, phase: 'CORE_BOOT // 15%', log: 'Loading Antigravity WebGL visualizer...' },
+      { at: 40, phase: 'CRM_PIPELINES // 40%', log: 'Connecting GHL, HubSpot & EngageBay modules...' },
+      { at: 70, phase: 'VOICE_AI // 70%', log: 'Synchronizing Vapi & ElevenLabs neural engines...' },
+      { at: 92, phase: 'OPTIMIZING // 92%', log: 'Calibrating 100/100 Core Web Vitals telemetry...' },
+      { at: 100, phase: 'SYSTEM READY // 100%', log: 'Access granted. Welcome to Muhammad Mohsin\'s Portfolio.' }
+    ];
+
+    const interval = setInterval(() => {
+      // Accelerate smoothly towards 100
+      const increment = Math.max(1, Math.floor(Math.random() * 8) + 4);
+      progress = Math.min(100, progress + increment);
+
+      progressBar.style.width = `${progress}%`;
+      percentageEl.innerText = `${progress}%`;
+
+      // Update telemetry messages based on progress thresholds
+      for (let i = telemetryPhases.length - 1; i >= 0; i--) {
+        if (progress >= telemetryPhases[i].at) {
+          if (phaseEl) phaseEl.innerText = telemetryPhases[i].phase;
+          if (logTextEl) logTextEl.innerText = telemetryPhases[i].log;
+          break;
+        }
+      }
+
+      if (progress >= 100) {
+        clearInterval(interval);
+        setTimeout(() => {
+          preloader.classList.add('loaded');
+          // Once preloader finishes fading out, auto-trigger the eye-catching popup!
+          setTimeout(() => {
+            openContactPopup();
+          }, 450);
+        }, 300);
+      }
+    }, 45);
+  }
+
+  // ==========================================================================
+  // 5. STRATEGY CALL POPUP MODAL CONTROLLER & EVENT LISTENERS
+  // ==========================================================================
+  const contactPopupModal = document.getElementById('contactPopupModal');
+  const contactPopupClose = document.getElementById('contactPopupClose');
+  const popupContactForm = document.getElementById('popupContactForm');
+  const popupFormStatus = document.getElementById('popupFormStatus');
+  const popupSubmitBtn = document.getElementById('popupSubmitBtn');
+
+  window.openContactPopup = function () {
+    if (!contactPopupModal) return;
+    contactPopupModal.classList.add('active');
+    document.body.style.overflow = 'hidden';
+
+    // Focus the first input after a slight delay
+    setTimeout(() => {
+      const nameInput = document.getElementById('popupName');
+      if (nameInput) nameInput.focus();
+    }, 200);
+  };
+
+  window.closeContactPopup = function () {
+    if (!contactPopupModal) return;
+    contactPopupModal.classList.remove('active');
+    document.body.style.overflow = 'auto';
+  };
+
+  if (contactPopupClose) {
+    contactPopupClose.addEventListener('click', closeContactPopup);
+  }
+
+  if (contactPopupModal) {
+    contactPopupModal.addEventListener('click', (e) => {
+      if (e.target === contactPopupModal) {
+        closeContactPopup();
+      }
+    });
+
+    window.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && contactPopupModal.classList.contains('active')) {
+        closeContactPopup();
+      }
+    });
+  }
+
+  // Bind all CTA buttons with class .open-popup-trigger across all sections
+  document.querySelectorAll('.open-popup-trigger').forEach((btn) => {
+    btn.addEventListener('click', (e) => {
+      e.preventDefault();
+      openContactPopup();
+    });
+  });
+
+  // Popup Form Submission Handler (Live Email Dispatch via FormSubmit)
+  if (popupContactForm) {
+    popupContactForm.addEventListener('submit', async (e) => {
+      e.preventDefault();
+
+      const originalBtnText = popupSubmitBtn.innerHTML;
+
+      const name = popupContactForm.querySelector('[name="name"]').value.trim();
+      const email = popupContactForm.querySelector('[name="email"]').value.trim();
+      const phone = popupContactForm.querySelector('[name="phone"]')?.value.trim() || 'N/A';
+      const inquiryType = popupContactForm.querySelector('[name="inquiry_type"]').value;
+      const message = popupContactForm.querySelector('[name="message"]').value.trim();
+
+      if (!name || !email || !message) {
+        showPopupStatus('error', '⚠️ Please complete all required fields.');
+        return;
+      }
+
+      popupSubmitBtn.innerHTML = '✦ Transmitting Protocol to Mohsin...';
+      popupSubmitBtn.style.opacity = '0.75';
+      popupSubmitBtn.disabled = true;
+      if (popupFormStatus) popupFormStatus.style.display = 'none';
+
+      try {
+        const response = await fetch('https://formsubmit.co/ajax/mohsincloudmail@gmail.com', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            'Accept': 'application/json'
+          },
+          body: JSON.stringify({
+            name: name,
+            email: email,
+            phone: phone,
+            inquiry_type: inquiryType,
+            message: message,
+            _subject: `🔥 Priority Strategy Call Request: ${name} (${inquiryType})`,
+            _template: 'table',
+            _captcha: 'false'
+          })
+        });
+
+        const data = await response.json();
+
+        if (response.ok || data.success === 'true' || data.success === true) {
+          popupSubmitBtn.innerHTML = '✔ Strategy Request Dispatched!';
+          popupSubmitBtn.style.background = 'linear-gradient(135deg, #10b981 0%, #059669 100%)';
+          popupSubmitBtn.style.opacity = '1';
+
+          showPopupStatus(
+            'success',
+            `<strong>✔ TRANSMISSION RECEIVED:</strong> Thank you, <strong>${escapeHtml(name)}</strong>! Your priority discovery request has been delivered to <strong>mohsincloudmail@gmail.com</strong>. Mohsin will reach out to <strong>${escapeHtml(email)}</strong> promptly!`
+          );
+
+          popupContactForm.reset();
+
+          setTimeout(() => {
+            closeContactPopup();
+            popupSubmitBtn.innerHTML = originalBtnText;
+            popupSubmitBtn.style.background = '';
+            popupSubmitBtn.disabled = false;
+          }, 3500);
+        } else if (data.message && data.message.toLowerCase().includes('activation')) {
+          popupSubmitBtn.innerHTML = '📬 Check Inbox for Activation';
+          popupSubmitBtn.style.background = 'linear-gradient(135deg, #f59e0b 0%, #d97706 100%)';
+          popupSubmitBtn.disabled = false;
+          popupSubmitBtn.style.opacity = '1';
+
+          showPopupStatus(
+            'error',
+            `<strong>📬 ACTIVATION NOTICE:</strong> FormSubmit sent an activation email to <strong>mohsincloudmail@gmail.com</strong>. Click "Activate Form" in your inbox to complete setup!`
+          );
+        } else {
+          throw new Error(data.message || 'Dispatch rejected');
+        }
+      } catch (err) {
+        console.error('Popup Form Dispatch Error:', err);
+        popupSubmitBtn.innerHTML = '⚠️ Transmission Delay — Direct Dispatch Available';
+        popupSubmitBtn.style.background = 'linear-gradient(135deg, #ff2a54 0%, #990022 100%)';
+        popupSubmitBtn.disabled = false;
+        popupSubmitBtn.style.opacity = '1';
+
+        showPopupStatus(
+          'error',
+          `<strong>⚠️ NOTICE:</strong> Direct API delivery encountered a network delay. You can email Mohsin directly at <a href="mailto:mohsincloudmail@gmail.com?subject=Discovery Session - ${encodeURIComponent(name)}" style="color: #fff; text-decoration: underline; font-weight: 700;">mohsincloudmail@gmail.com</a> or WhatsApp <a href="https://wa.me/923302893269" target="_blank" style="color: #fff; text-decoration: underline; font-weight: 700;">+92 330-2893269</a>.`
+        );
+      }
+    });
+
+    function showPopupStatus(type, htmlContent) {
+      if (!popupFormStatus) return;
+      popupFormStatus.className = `form-status-alert form-status-${type}`;
+      popupFormStatus.innerHTML = htmlContent;
+      popupFormStatus.style.display = 'block';
+    }
+  }
+
+  function escapeHtml(str) {
+    return String(str).replace(/[&<>"']/g, function (m) {
+      return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#039;' }[m];
+    });
+  }
 })();
+
