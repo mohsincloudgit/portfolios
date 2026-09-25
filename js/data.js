@@ -58,28 +58,34 @@ const portfolioProjects = [
 
   // --- Category: CMS Development ---
   {
-    id: 'bembex-custom-cms',
-    title: 'Multi-Platform Custom CMS & Headless Portal',
+    id: 'tennis-booking-platform',
+    title: 'Tennis Coaching Booking & Scheduling Platform',
     category: 'cms',
-    categoryLabel: 'CMS Development',
+    categoryLabel: 'WordPress Development • Booking & Scheduling',
     company: 'Bembex Lab',
-    role: 'WordPress CMS Developer',
-    period: 'January 2026 – PRESENT',
-    badge: 'BEMBEX LAB &bull; 5+ PLATFORMS',
-    badgeColor: '#00f0ff',
-    image: 'https://images.unsplash.com/photo-1507238691740-187a5b1d37b8?q=80&w=1200&auto=format&fit=crop',
-    overview: 'Custom functionality-based CMS development across WordPress, Shopify, Webflow, Squarespace, and Unbounce. Delivering lightning-fast load times and custom theme/plugin architectures.',
+    role: 'WordPress CMS Developer • Booking System Developer',
+    period: '2026 — PRESENT',
+    badge: 'BEMBEX LAB &bull; 2026 — PRESENT',
+    badgeColor: '#ff6b00',
+    image: 'assets/images/tennis-booking-showcase.png',
+    fullImage: 'assets/images/tennis-booking-full.png',
+    overview: 'Custom tennis coaching booking platform built around a multi-step appointment experience, allowing users to select a coach, training session, date, time slot, package, and customer details before completing payment. Designed and customized the complete booking journey with a focus on a clean, conversion-focused interface, responsive layouts, dynamic availability, coach/session selection, package selection, and integrated online payment flow.',
+    cardDesc: 'Custom WordPress booking platform designed for tennis coaching sessions. Built a complete multi-step booking experience covering coach selection, training programs, date & time availability, packages, customer information, and online payment.',
     architecture: [
-      'Engineered fully custom WordPress themes with zero bloat and clean modular template hierarchy.',
-      'Developed custom Shopify Liquid sections with dynamic filtering, AJAX cart, and checkout conversion tuning.',
-      'Designed responsive Webflow layouts with custom interactions and clean HTML5/CSS exports.',
-      'Configured cloud DNS, SSL certificates, staging environments, and multi-domain hosting management.'
+      'Engineered a custom 4-stage booking journey from coach selection through payment.',
+      "Customized FluentBooking's calendar and availability interface for a branded scheduling experience.",
+      'Developed dynamic coach, training-session, package, date, and time-slot selection components.',
+      'Implemented automatic first-available-date selection based on booking availability.',
+      'Built a responsive package selection interface with multiple coaching plans.',
+      'Connected the booking workflow with customer information collection and online payment.',
+      'Created a dynamic visual progress indicator that updates as users complete each booking stage.',
+      'Customized frontend states, interactions, spacing, typography, buttons, cards, and calendar components to match the supplied tennis brand design.'
     ],
-    techStack: ['WordPress Core', 'Shopify Liquid', 'Webflow', 'Squarespace', 'Unbounce', 'Tailwind CSS', 'PHP'],
+    techStack: ['WordPress', 'FluentBooking', 'Fluent Forms', 'PHP', 'JavaScript', 'HTML5', 'CSS3', 'Responsive UI', 'Online Payments'],
     metrics: [
-      { label: 'Page Speed', value: '0.6s LCP' },
-      { label: 'Platforms', value: '5 CMS Engines' },
-      { label: 'Delivery', value: '100% On-Time' }
+      { label: 'Booking Flow', value: '4 Steps' },
+      { label: 'Scheduling', value: 'Dynamic' },
+      { label: 'Payment', value: 'Integrated' }
     ]
   },
   {
@@ -246,7 +252,7 @@ const portfolioProjects = [
   if (!modal || !modalClose || !modalBody) return;
 
   window.openProjectModalById = function (projectId) {
-    const p = portfolioProjects.find(item => item.id === projectId);
+    const p = portfolioProjects.find(item => item.id === projectId || (projectId === 'bembex-custom-cms' && item.id === 'tennis-booking-platform'));
     if (!p) return;
 
     modalBody.innerHTML = `
@@ -259,8 +265,32 @@ const portfolioProjects = [
       <div style="font-size: 0.95rem; color: #94a3b8; font-family: 'JetBrains Mono'; margin-bottom: 20px;">
         Role: <strong style="color: #fff;">${p.role}</strong> &bull; Category: <span style="color: ${p.badgeColor};">${p.categoryLabel}</span>
       </div>
-      <div style="width: 100%; height: 260px; border-radius: 12px; overflow: hidden; margin-bottom: 24px; border: 1px solid rgba(255,255,255,0.1);">
-        <img src="${p.image}" alt="${p.title}" style="width: 100%; height: 100%; object-fit: cover;">
+      
+      <div style="width: 100%; border-radius: 12px; overflow: hidden; margin-bottom: 24px; border: 1px solid rgba(255,255,255,0.1); background: #080c16;">
+        <div style="width: 100%; height: 320px; overflow: hidden; position: relative;">
+          <img src="${p.image}" alt="${p.title}" style="width: 100%; height: 100%; object-fit: cover; display: block;">
+        </div>
+        ${p.fullImage ? `
+          <div style="display: flex; flex-wrap: wrap; gap: 10px; align-items: center; justify-content: space-between; padding: 12px 18px; background: rgba(13, 18, 30, 0.95); border-top: 1px solid rgba(255,255,255,0.08);">
+            <div style="display: flex; align-items: center; gap: 8px; font-family: 'JetBrains Mono', monospace; font-size: 0.76rem; color: #94a3b8;">
+              <span style="color: ${p.badgeColor};">✦</span>
+              <span>Full Booking Architecture &amp; Multi-Step Flow</span>
+            </div>
+            <div style="display: flex; gap: 10px; flex-wrap: wrap;">
+              <button type="button" id="toggleScrollPreviewBtn" style="background: rgba(255, 107, 0, 0.15); border: 1px solid rgba(255, 107, 0, 0.45); color: #ff9d5c; font-family: 'JetBrains Mono', monospace; font-size: 0.75rem; padding: 7px 14px; border-radius: 6px; cursor: pointer; transition: all 0.2s;">
+                📱 Toggle Full Scrollable Journey
+              </button>
+              <a href="${p.fullImage}" target="_blank" rel="noopener noreferrer" style="background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.15); color: #e2e8f0; font-family: 'JetBrains Mono', monospace; font-size: 0.75rem; padding: 7px 14px; border-radius: 6px; text-decoration: none; display: inline-flex; align-items: center; gap: 6px;">
+                <span>View Full Res ↗</span>
+              </a>
+            </div>
+          </div>
+          <div id="modalScrollJourney" style="display: none; height: 520px; overflow-y: auto; background: #060911; padding: 24px 16px; text-align: center; border-top: 1px solid rgba(255,255,255,0.08);">
+            <div style="max-width: 520px; margin: 0 auto; box-shadow: 0 16px 50px rgba(0,0,0,0.85); border-radius: 10px; overflow: hidden; border: 1px solid rgba(255,255,255,0.12);">
+              <img src="${p.fullImage}" alt="${p.title} Full Architecture" style="width: 100%; height: auto; display: block;">
+            </div>
+          </div>
+        ` : ''}
       </div>
       
       <p style="color: #94a3b8; font-size: 1rem; line-height: 1.8; margin-bottom: 24px;">
@@ -305,6 +335,19 @@ const portfolioProjects = [
         `).join('')}
       </div>
     `;
+
+    if (p.fullImage) {
+      const toggleBtn = document.getElementById('toggleScrollPreviewBtn');
+      const scrollJourney = document.getElementById('modalScrollJourney');
+      if (toggleBtn && scrollJourney) {
+        toggleBtn.addEventListener('click', () => {
+          const isShown = scrollJourney.style.display === 'block';
+          scrollJourney.style.display = isShown ? 'none' : 'block';
+          toggleBtn.textContent = isShown ? '📱 Toggle Full Scrollable Journey' : '✕ Collapse Scrollable Journey';
+          toggleBtn.style.background = isShown ? 'rgba(255, 107, 0, 0.15)' : 'rgba(255, 255, 255, 0.15)';
+        });
+      }
+    }
 
     modal.classList.add('active');
     document.body.style.overflow = 'hidden';
@@ -361,10 +404,11 @@ const portfolioProjects = [
             <h3 class="project-title">${p.title}</h3>
             <span class="project-arrow">↗</span>
           </div>
-          <p class="project-desc">${p.overview}</p>
+          <p class="project-desc">${p.cardDesc || p.overview}</p>
           <div class="project-stats-row">
             <div class="project-stat-pill">${p.metrics[0].label}: <strong>${p.metrics[0].value}</strong></div>
             <div class="project-stat-pill ${p.badgeColor === '#ff2a54' ? 'red-stat' : ''}">${p.metrics[1].label}: <strong>${p.metrics[1].value}</strong></div>
+            ${p.metrics[2] ? `<div class="project-stat-pill">${p.metrics[2].label}: <strong style="color: ${p.badgeColor};">${p.metrics[2].value}</strong></div>` : ''}
           </div>
         </div>
       </div>
