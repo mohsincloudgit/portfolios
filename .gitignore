@@ -9,6 +9,7 @@ Thumbs.db
 .vscode/
 .idea/
 *.log
+*.csv
 
 # Dependencies (if any added in future)
 node_modules/
