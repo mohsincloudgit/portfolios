@@ -192,6 +192,8 @@ const portfolioProjects = [
       { label: 'LCP / Core Vitals', value: '0.6s / 100' }
     ]
   },
+  /*
+  // TEMPORARILY COMMENTED OUT: K-Electric & E-Commerce projects
   {
     id: 'kelectric-data-integrity',
     title: 'Critical Outages Operations Data Integrity System',
@@ -241,6 +243,7 @@ const portfolioProjects = [
       { label: 'Extraction Time', value: '-80%' }
     ]
   }
+  */
 ];
 
 // Interactive Modal Controller for Projects
