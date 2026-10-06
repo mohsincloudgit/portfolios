@@ -13,3 +13,6 @@ Thumbs.db
 
 # Dependencies (if any added in future)
 node_modules/
+
+# Local scripts
+push_to_github.bat
