@@ -58,6 +58,57 @@ const portfolioProjects = [
 
   // --- Category: CMS Development ---
   {
+    id: 'troyer-ridge-furniture',
+    title: 'Troyer Ridge Furniture — Custom B2B Dealer Portal & Membership Engine',
+    category: 'cms',
+    categoryLabel: 'Custom WordPress Architecture • B2B Dealer Portal & Membership Ecosystem',
+    company: 'Troyer Ridge Furniture',
+    role: 'Full-Stack WordPress Developer & Custom Plugin Architect',
+    period: '2026 — PRESENT',
+    badge: 'TROYER RIDGE &bull; 2 CUSTOM PLUGINS',
+    badgeColor: '#f59e0b',
+    image: 'assets/images/troyer-furniture-showcase.png',
+    fullImage: 'assets/images/troyer-furniture-full.png',
+    fullImageLabel: 'Full Multi-View System Breakdown & UI Walkthrough',
+    screenshots: [
+      { label: 'Storefront Experience', img: 'assets/images/troyer-storefront.png' },
+      { label: 'Dealer Portal Hub', img: 'assets/images/troyer-dealer-portal.png' },
+      { label: '30+ Collections Grid', img: 'assets/images/troyer-collections-grid.png' },
+      { label: 'Dealer Approvals Engine', img: 'assets/images/troyer-dealer-approvals.png' }
+    ],
+    overview: 'Architected and deployed an end-to-end B2B Dealer Portal, Digital Asset Management (DAM), and custom membership infrastructure for Troyer Ridge Furniture, a premier handcrafted hardwood furniture manufacturer. Built two proprietary custom WordPress plugins seamlessly integrated with MemberPress and WooCommerce to solve critical wholesale distribution bottlenecks: 1) A gated dealer registration and admin approval workflow engine with automated transactional email alerts, quarantine application states, and one-click approval/rejection provisioning. 2) A custom B2B dealer asset hub featuring granular toggle controls for high-resolution images and videos, 30+ collection asset downloads, confidential dealer pricing sheets, and an event-driven notification engine that automatically broadcasts email digests and in-dashboard activity alerts whenever new products, collections, catalogs, or media are published by administrators.',
+    cardDesc: 'Custom-engineered B2B WordPress portal for handcrafted hardwood furniture manufacturer. Architected two custom plugins on top of MemberPress & WooCommerce: a gated dealer onboarding & admin approval engine, and a centralized dealer hub with toggleable media permissions, 30+ collection asset libraries, and automated real-time notification dispatching.',
+    architecture: [
+      'Proprietary Dealer Registration & Admin Approval Plugin: Built custom registration endpoints with quarantine state validation, custom user meta schemas (dealer_status = pending | approved | rejected), and administrative approval controls with nonce verification.',
+      'Automated Administrator & Dealer Email Pipeline: Engineered asynchronous transactional email triggers notifying master administrators upon new dealer sign-ups and auto-dispatching customized welcome emails with login credentials upon admin approval.',
+      'Custom Dealer Portal Dashboard (Subscriber vs. Admin Matrix): Developed a tailored, responsive portal dashboard integrating MemberPress capability checks, displaying real-time metrics (30 Collections, 12 Products, 7 Saved Products) and 10 quick-access dealer resource cards.',
+      'Granular Media Permission Toggles (Images & Videos Access Control): Created dynamic admin settings allowing instantaneous toggling of high-resolution product photography and marketing video downloads on a global and dealer-group basis.',
+      'Automated Event-Driven Notification Engine: Programmed WordPress publish/update hooks that trigger instant in-portal activity badges and bulk email dispatchers whenever new collections, catalogs, or media files are uploaded.',
+      'Centralized Digital Asset Management (DAM) for 30+ Hardwood Collections: Built custom catalog download handlers allowing approved dealers to view collections and trigger one-click bulk downloads of high-resolution asset zip files and tear sheets.',
+      'Wholesale Catalogs & Pricing Distribution Architecture: Implemented secure PDF/CSV catalog distribution modules ensuring confidential dealer price books and wholesale tier sheets remain strictly inaccessible to unauthenticated public visitors.',
+      'Luxury Front-End Brand Storefront & Craftsmanship Experience: Developed a custom, mobile-optimized WordPress front-end showcasing Troyer Ridge’s heritage farmhouse aesthetic, interactive wood stain guides, collection showcases, and B2B wholesale partnership funnels.'
+    ],
+    techStack: [
+      'WordPress Core',
+      'WooCommerce',
+      'MemberPress Pro',
+      '2 Custom WordPress Plugins',
+      'PHP 8.x (Custom OOP Architecture)',
+      'Role-Based Access Control (RBAC)',
+      'WP Action & Filter Hooks',
+      'Transactional Email & SMTP Dispatcher',
+      'JavaScript (ES6+) & AJAX',
+      'SCSS / CSS3 Glassmorphism',
+      'MySQL Data Schema',
+      'Digital Asset Management (DAM)'
+    ],
+    metrics: [
+      { label: 'Hardwood Collections', value: '30+ Live' },
+      { label: 'Dealer Approvals', value: '100% Automated' },
+      { label: 'Media Access Control', value: 'Granular RBAC' }
+    ]
+  },
+  {
     id: 'tennis-booking-platform',
     title: 'Tennis Coaching Booking & Scheduling Platform',
     category: 'cms',
@@ -270,14 +321,24 @@ const portfolioProjects = [
       </div>
       
       <div style="width: 100%; border-radius: 12px; overflow: hidden; margin-bottom: 24px; border: 1px solid rgba(255,255,255,0.1); background: #080c16;">
-        <div style="width: 100%; height: 320px; overflow: hidden; position: relative;">
-          <img src="${p.image}" alt="${p.title}" style="width: 100%; height: 100%; object-fit: cover; display: block;">
+        <div style="width: 100%; height: 340px; overflow: hidden; position: relative;">
+          <img id="modalMainPreviewImg" src="${p.image}" alt="${p.title}" style="width: 100%; height: 100%; object-fit: cover; display: block; transition: opacity 0.25s ease;">
         </div>
+        ${p.screenshots && p.screenshots.length > 0 ? `
+          <div style="display: flex; gap: 8px; flex-wrap: wrap; padding: 12px 16px; background: rgba(10, 15, 26, 0.98); border-top: 1px solid rgba(255,255,255,0.08); align-items: center;">
+            <span style="font-family: 'JetBrains Mono', monospace; font-size: 0.72rem; color: #94a3b8; margin-right: 4px;">// VIEWS:</span>
+            ${p.screenshots.map((s, idx) => `
+              <button type="button" class="modal-gallery-tab-btn" data-target-img="${s.img}" style="display: inline-flex; align-items: center; gap: 6px; padding: 6px 12px; border-radius: 6px; background: ${idx === 0 ? 'rgba(245, 158, 11, 0.18)' : 'rgba(255,255,255,0.04)'}; border: 1px solid ${idx === 0 ? 'rgba(245, 158, 11, 0.5)' : 'rgba(255,255,255,0.1)'}; color: ${idx === 0 ? '#fde047' : '#cbd5e1'}; font-family: 'JetBrains Mono', monospace; font-size: 0.74rem; cursor: pointer; transition: all 0.2s;">
+                <span style="color: ${p.badgeColor};">✦</span> ${s.label}
+              </button>
+            `).join('')}
+          </div>
+        ` : ''}
         ${p.fullImage ? `
           <div style="display: flex; flex-wrap: wrap; gap: 10px; align-items: center; justify-content: space-between; padding: 12px 18px; background: rgba(13, 18, 30, 0.95); border-top: 1px solid rgba(255,255,255,0.08);">
             <div style="display: flex; align-items: center; gap: 8px; font-family: 'JetBrains Mono', monospace; font-size: 0.76rem; color: #94a3b8;">
               <span style="color: ${p.badgeColor};">✦</span>
-              <span>Full Booking Architecture &amp; Multi-Step Flow</span>
+              <span>${p.fullImageLabel || 'Full Architecture & UI Walkthrough'}</span>
             </div>
             <div style="display: flex; gap: 10px; flex-wrap: wrap;">
               <button type="button" id="toggleScrollPreviewBtn" style="background: rgba(255, 107, 0, 0.15); border: 1px solid rgba(255, 107, 0, 0.45); color: #ff9d5c; font-family: 'JetBrains Mono', monospace; font-size: 0.75rem; padding: 7px 14px; border-radius: 6px; cursor: pointer; transition: all 0.2s;">
@@ -289,7 +350,7 @@ const portfolioProjects = [
             </div>
           </div>
           <div id="modalScrollJourney" style="display: none; height: 520px; overflow-y: auto; background: #060911; padding: 24px 16px; text-align: center; border-top: 1px solid rgba(255,255,255,0.08);">
-            <div style="max-width: 520px; margin: 0 auto; box-shadow: 0 16px 50px rgba(0,0,0,0.85); border-radius: 10px; overflow: hidden; border: 1px solid rgba(255,255,255,0.12);">
+            <div style="max-width: 680px; margin: 0 auto; box-shadow: 0 16px 50px rgba(0,0,0,0.85); border-radius: 10px; overflow: hidden; border: 1px solid rgba(255,255,255,0.12);">
               <img src="${p.fullImage}" alt="${p.title} Full Architecture" style="width: 100%; height: auto; display: block;">
             </div>
           </div>
@@ -338,6 +399,30 @@ const portfolioProjects = [
         `).join('')}
       </div>
     `;
+
+    if (p.screenshots && p.screenshots.length > 0) {
+      const mainImg = modalBody.querySelector('#modalMainPreviewImg');
+      const galleryBtns = modalBody.querySelectorAll('.modal-gallery-tab-btn');
+      galleryBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+          galleryBtns.forEach(b => {
+            b.style.background = 'rgba(255,255,255,0.04)';
+            b.style.borderColor = 'rgba(255,255,255,0.1)';
+            b.style.color = '#cbd5e1';
+          });
+          btn.style.background = 'rgba(245, 158, 11, 0.2)';
+          btn.style.borderColor = 'rgba(245, 158, 11, 0.6)';
+          btn.style.color = '#fde047';
+          if (mainImg) {
+            mainImg.style.opacity = '0.3';
+            setTimeout(() => {
+              mainImg.src = btn.dataset.targetImg;
+              mainImg.style.opacity = '1';
+            }, 120);
+          }
+        });
+      });
+    }
 
     if (p.fullImage) {
       const toggleBtn = document.getElementById('toggleScrollPreviewBtn');
@@ -388,6 +473,22 @@ const portfolioProjects = [
   const loadMoreContainer = document.getElementById('loadMoreContainer');
 
   if (!grid) return;
+
+  function updateTabCounts() {
+    const counts = {
+      all: portfolioProjects.length,
+      'crm-ghl': portfolioProjects.filter(p => p.category === 'crm-ghl').length,
+      cms: portfolioProjects.filter(p => p.category === 'cms').length,
+      'marketing-ai': portfolioProjects.filter(p => p.category === 'marketing-ai').length
+    };
+    tabs.forEach(tab => {
+      const cat = tab.dataset.category;
+      if (cat === 'all') tab.textContent = `All Systems (${counts.all})`;
+      if (cat === 'crm-ghl') tab.textContent = `CRM & GHL Automations (${counts['crm-ghl']})`;
+      if (cat === 'cms') tab.textContent = `CMS Development (${counts.cms})`;
+      if (cat === 'marketing-ai') tab.textContent = `Marketing & AI Automations (${counts['marketing-ai']})`;
+    });
+  }
 
   function renderProjects() {
     const filtered = currentCategory === 'all'
@@ -458,6 +559,7 @@ const portfolioProjects = [
     });
   }
 
-  // Initial render
+  // Initial setup & render
+  updateTabCounts();
   renderProjects();
 })();
